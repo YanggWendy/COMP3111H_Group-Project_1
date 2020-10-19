@@ -2,7 +2,7 @@
 
 > https://github.com/YanggWendy/COMP3111H_Group-Project_1.git
 
-Goup teammates:
+Group teammates:
 
 ## 1. Yang Wenting
 
