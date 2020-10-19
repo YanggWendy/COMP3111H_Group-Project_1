@@ -48,7 +48,7 @@ public class MyApplication extends Application {
    		Scene scene =  new Scene(root);
    		stage.setScene(scene);
    		stage.setTitle("Team T-30H: Popular Names");
-   		stage.show();
+   		stage.show();  
 	}
 
 	/**
