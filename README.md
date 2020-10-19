@@ -1,10 +1,29 @@
 # COMP3111H_Group-Project_1
 
-#Team T-xx
-https://github.com/YanggWendy/COMP3111H_Group-Project_1
-# Chen Xumeng
-# Yang Wenting 
-Email: wyangaz@connect.ust.hk| Github: YanggWendy | Dev branch: yang_feature1
-Task 1 & Task 4 
+> https://github.com/YanggWendy/COMP3111H_Group-Project_1.git
 
-# Zhao Yizhe
+Group teammates:
+
+## 1. Yang Wenting
+
+> email:  wyangaz@connect.ust.hk | github: YanggWendy | dev branch: yang_feature1
+
+> sid: 20583242
+
+> Task 1 & Task 4
+
+## 2. Chen Xumeng
+
+> email: xchenco@connect.ust.hk | github: iMaxmoe | dev branch:
+
+> sid: 20492338
+
+> Task 2 & Task 5
+
+## 3. Zhao Yizhe
+
+> email: yzhaocj@connect.ust.hk | github: KikiDMW | dev branch: yz_feature3
+
+> sid: 20582834
+
+> Task 3 & Task 6
