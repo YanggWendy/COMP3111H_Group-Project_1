@@ -15,7 +15,7 @@ Group teammates:
 
 ## 2. Chen Xumeng
 
-> email: xchenco@connect.ust.hk | github: iMaxmoe | dev branch:
+> email: xchenco@connect.ust.hk | github: iMaxmoe | dev branch: xm_feature2
 
 > sid: 20492338
 
