@@ -1,4 +1,4 @@
-# COMP3111H_Group-Project_1
+# COMP3111H: Group 6
 
 > https://github.com/YanggWendy/COMP3111H_Group-Project_1.git
 
