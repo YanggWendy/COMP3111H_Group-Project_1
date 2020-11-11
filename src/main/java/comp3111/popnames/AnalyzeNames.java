@@ -2,6 +2,7 @@ package comp3111.popnames;
 
 import org.apache.commons.csv.*;
 import edu.duke.*;
+import org.json.*;
 
 public class AnalyzeNames {
 
@@ -92,6 +93,50 @@ public class AnalyzeNames {
 	    	return "information on the name at the specified rank is not available";
 	}
 	
-
+	
+	/* Task 2: report the popularity of a given name in a certain time range
+	 * Return in json format. (For potentially future visualization purpose)
+	 * e.g.
+	 * {"name":"David", "gender":"male", "data":[
+	 * 	{"year":2012, "rank":123, "count":66666, "percentage":3.2},
+	 * 	{"year":2013, "rank":101, "count":67776, "percentage":4.2}]}
+	 * */
+	public static String reportPopularity(String name, String gender, int year0, int year1) {
+		JSONObject mainObj = new JSONObject();
+		mainObj.put("name", name);
+		mainObj.put("gender", gender);
+		JSONArray arrObj = new JSONArray();
+		
+		for (int year = year0; year <= year1; year++) {
+			boolean found = false;
+			int totalNum = 0;
+			int count = 0;
+			int rank = 1;
+			int oRank = 0;
+			for (CSVRecord rec: getFileParser(year)) {
+				if (rec.get(1).equals(gender)) {
+					if (rec.get(0).equals(name)) {
+						found = true;
+						oRank = rank;
+						count = Integer.parseInt(rec.get(2));
+					}
+					rank++;
+					totalNum += Integer.parseInt(rec.get(2));
+				}
+			}
+			
+			if (found) {
+				JSONObject entryObj = new JSONObject();
+				entryObj.put("year", year);
+				entryObj.put("rank", oRank);
+				entryObj.put("count", count);
+				entryObj.put("percentage", count / (float)totalNum);
+				arrObj.put(entryObj);
+			}			
+		}
+		
+		mainObj.put("data", arrObj);
+		return mainObj.toString();
+	}
  
 }
