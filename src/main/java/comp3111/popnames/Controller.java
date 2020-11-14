@@ -5,6 +5,7 @@ package comp3111.popnames;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Labeled;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -69,7 +70,29 @@ public class Controller {
     @FXML
     private TextArea textAreaConsole;
     
-
+    
+    // task2
+    @FXML
+    private TextField t2name;
+    
+    @FXML
+    private TextField t2year0;    
+    
+    @FXML
+    private TextField t2year1;
+    
+    @FXML
+    private Button t2button;
+    
+    @FXML
+    void doT2Report() {
+    	String name = t2name.getText();
+//    	String gender = T11.getUserData().toString();
+    	int year0 = Integer.parseInt(t2year0.getText());
+    	int year1 = Integer.parseInt(t2year1.getText());
+    	textAreaConsole.setText(AnalyzeNames.reportPopularity(name, "F", year0, year1)); // radio button not ready so input F here for now.
+    }
+    
     /**
      *  Task Zero
      *  To be triggered by the "Summary" button on the Task Zero Tab 
