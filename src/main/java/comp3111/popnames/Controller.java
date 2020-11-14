@@ -130,7 +130,7 @@ public class Controller {
     	String  gender = T11.getSelectedToggle().getUserData().toString();
     	int year0 = Integer.parseInt(t2year0.getText());
     	int year1 = Integer.parseInt(t2year1.getText());
-    	textAreaConsole.setText(AnalyzeNames.reportPopularity(name, gender, year0, year1)); // radio button not ready so input F here for now.
+    	textAreaConsole.setText(AnalyzeNames.reportPopularity(name, gender, year0, year1));
     }
     
     /**
