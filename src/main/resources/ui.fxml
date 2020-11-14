@@ -22,19 +22,19 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="221.0" prefWidth="719.0">
                            <children>
-                              <Label layoutX="98.0" layoutY="67.0" prefHeight="18.0" prefWidth="87.0" text="Name (female)" />
+                              <Label layoutX="98.0" layoutY="67.0" prefHeight="18.0" prefWidth="101.0" text="Name (female)" />
                               <Label layoutX="98.0" layoutY="98.0" text="Year of Interest" />
-                              <TextField fx:id="textfieldNameF" layoutX="185.0" layoutY="64.0" prefHeight="26.0" prefWidth="150.0" promptText="e.g 1830 (18: yr 18-19; 30: Spring)" text="Desire" />
-                              <TextField fx:id="textfieldYear" layoutX="185.0" layoutY="95.0" text="2019" />
+                              <TextField fx:id="textfieldNameF" layoutX="208.0" layoutY="63.0" prefHeight="26.0" prefWidth="150.0" promptText="e.g 1830 (18: yr 18-19; 30: Spring)" text="Desire" />
+                              <TextField fx:id="textfieldYear" layoutX="208.0" layoutY="93.0" text="2019" />
                               <Button fx:id="buttonRankM" layoutX="185.0" layoutY="134.0" mnemonicParsing="false" onAction="#doRankM" text="Rank (male)" />
                               <Label layoutX="98.0" layoutY="35.0" text="Name (male)" />
-                              <TextField fx:id="textfieldNameM" layoutX="185.0" layoutY="32.0" prefHeight="26.0" prefWidth="149.0" text="David" />
+                              <TextField fx:id="textfieldNameM" layoutX="209.0" layoutY="30.0" prefHeight="26.0" prefWidth="149.0" text="David" />
                               <Label layoutX="98.0" layoutY="138.0" text="REPORT" />
                               <Button fx:id="buttonRankF" layoutX="271.0" layoutY="134.0" mnemonicParsing="false" onAction="#doRankF" text="Rank (female)" />
                               <Button fx:id="buttonTopM" layoutX="370.0" layoutY="134.0" mnemonicParsing="false" onAction="#doTopM" text="Top 5 (male)" />
                               <Button fx:id="buttonTopF" layoutX="462.0" layoutY="134.0" mnemonicParsing="false" onAction="#doTopF" text="Top 5 (female)" />
                               <Button fx:id="buttonSummary" layoutX="566.0" layoutY="134.0" mnemonicParsing="false" onAction="#doSummary" text="Summary" />
-                              <Label layoutX="342.0" layoutY="98.0" text="Range: 1880 - 2019" />
+                              <Label layoutX="402.0" layoutY="98.0" text="Range: 1880 - 2019" />
                            </children>
                         </AnchorPane>
                   </content>
@@ -46,19 +46,19 @@
                               <Label layoutX="79.0" layoutY="44.0" />
                               <TextArea layoutX="96.0" layoutY="24.0" prefHeight="42.0" prefWidth="335.0" text="Generate a brief report in response to the queries on the most popular names registered at birth over a given period." wrapText="true" />
                               <Label layoutX="96.0" layoutY="100.0" text="Top N (N&gt;=1): " />
-                              <TextField layoutX="178.0" layoutY="96.0" prefHeight="26.0" prefWidth="27.0" text="10" />
+                              <TextField fx:id="t1TopN" layoutX="193.0" layoutY="95.0" prefHeight="27.0" prefWidth="35.0" text="10" />
                               <Label layoutX="253.0" layoutY="100.0" text="Gender: " />
-                              <RadioButton layoutX="308.0" layoutY="100.0" mnemonicParsing="false" selected="true" text="Male">
+                              <RadioButton fx:id="t1genderM" layoutX="308.0" layoutY="100.0" mnemonicParsing="false" selected="true" text="Male">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="T1" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton layoutX="360.0" layoutY="100.0" mnemonicParsing="false" text="Female" toggleGroup="$T1" />
+                              <RadioButton fx:id="t1genderF" layoutX="360.0" layoutY="100.0" mnemonicParsing="false" text="Female" toggleGroup="$T1" />
                               <Label layoutX="96.0" layoutY="132.0" text="Period (1880 - 2019): " />
-                              <TextField layoutX="276.0" layoutY="126.0" prefHeight="26.0" prefWidth="43.0" text="1945" />
-                              <TextField layoutX="210.0" layoutY="126.0" prefHeight="26.0" prefWidth="43.0" text="1941" />
-                              <Label layoutX="258.0" layoutY="130.0" text="to" />
-                              <Button layoutX="96.0" layoutY="169.0" mnemonicParsing="false" text="REPORT (yet to be implemented)" />
+                              <TextField fx:id="t1year2" layoutX="307.0" layoutY="127.0" prefHeight="27.0" prefWidth="50.0" text="1945" />
+                              <TextField fx:id="t1year1" layoutX="232.0" layoutY="127.0" prefHeight="27.0" prefWidth="50.0" text="1941" />
+                              <Label layoutX="287.0" layoutY="131.0" text="to" />
+                              <Button layoutX="96.0" layoutY="169.0" mnemonicParsing="false" onAction="#doT1Report" text="REPORT" />
                            </children>
                         </AnchorPane>
                     </content>
@@ -78,15 +78,15 @@
                                           <ToggleGroup fx:id="T11" />
                                        </toggleGroup>
                                     </RadioButton>
-                                    <RadioButton layoutX="384.0" layoutY="93.0" mnemonicParsing="false" text="Female">
+                                    <RadioButton layoutX="390.0" layoutY="93.0" mnemonicParsing="false" text="Female">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="T11" />
                                        </toggleGroup>
                                     </RadioButton>
                                     <Label layoutX="109.0" layoutY="129.0" text="Period (1880 - 2019): " />
-                                    <TextField fx:id="t2year1" layoutX="289.0" layoutY="123.0" prefHeight="26.0" prefWidth="43.0" text="1945" />
-                                    <TextField fx:id="t2year0" layoutX="223.0" layoutY="123.0" prefHeight="26.0" prefWidth="43.0" text="1941" />
-                                    <Label layoutX="271.0" layoutY="127.0" text="to" />
+                                    <TextField fx:id="t2year1" layoutX="325.0" layoutY="124.0" prefHeight="27.0" prefWidth="50.0" text="1945" />
+                                    <TextField fx:id="t2year0" layoutX="249.0" layoutY="124.0" prefHeight="27.0" prefWidth="50.0" text="1941" />
+                                    <Label layoutX="307.0" layoutY="128.0" text="to" />
                                     <Button layoutX="108.0" layoutY="169.0" mnemonicParsing="false" onAction="#doT2Report" text="REPORT" />
                                  </children>
                               </AnchorPane>
@@ -101,21 +101,21 @@
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="318.0" prefWidth="719.0">
                                  <children>
                                     <TextArea layoutX="112.0" layoutY="26.0" prefHeight="61.0" prefWidth="355.0" text="Generate a brief report in response to the queries on identifying the names that have shown the largest rise/fall in popularity over a given period.&#10;" wrapText="true" />
-                                    <RadioButton layoutX="290.0" layoutY="104.0" mnemonicParsing="false" text="Female">
+                                    <RadioButton layoutX="300.0" layoutY="104.0" mnemonicParsing="false" text="Female">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="T111" />
                                        </toggleGroup>
                                     </RadioButton>
-                                    <RadioButton layoutX="225.0" layoutY="104.0" mnemonicParsing="false" selected="true" text="Male">
+                                    <RadioButton layoutX="235.0" layoutY="104.0" mnemonicParsing="false" selected="true" text="Male">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="T111" />
                                        </toggleGroup>
                                     </RadioButton>
                                     <Label layoutX="112.0" layoutY="104.0" text="Gender of Interest: " />
                                     <Label layoutX="112.0" layoutY="138.0" text="Period (1880 - 2019): " />
-                                    <TextField layoutX="292.0" layoutY="132.0" prefHeight="26.0" prefWidth="43.0" text="1945" />
-                                    <TextField layoutX="226.0" layoutY="132.0" prefHeight="26.0" prefWidth="43.0" text="1941" />
-                                    <Label layoutX="274.0" layoutY="136.0" text="to" />
+                                    <TextField layoutX="326.0" layoutY="132.0" prefHeight="27.0" prefWidth="50.0" text="1945" />
+                                    <TextField layoutX="252.0" layoutY="132.0" prefHeight="27.0" prefWidth="50.0" text="1941" />
+                                    <Label layoutX="308.0" layoutY="136.0" text="to" />
                                     <Button layoutX="112.0" layoutY="175.0" mnemonicParsing="false" text="REPORT (yet to be implemented)" />
                                  </children>
                               </AnchorPane>

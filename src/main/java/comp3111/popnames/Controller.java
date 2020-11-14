@@ -10,6 +10,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.RadioButton;
 
 public class Controller {
 
@@ -69,6 +70,32 @@ public class Controller {
 
     @FXML
     private TextArea textAreaConsole;
+    
+    // task1
+    @FXML
+    private TextField t1TopN;
+
+    @FXML
+    private RadioButton t1genderM;
+
+    @FXML
+    private RadioButton t1genderF;
+
+    @FXML
+    private TextField t1year2;
+
+    @FXML
+    private TextField t1year1;
+    
+    @FXML
+    void doT1Report() {
+    	int top_n = Integer.parseInt(t1TopN.getText());
+//    	String gender = T11.getUserData().toString();
+    	int year0 = Integer.parseInt(t1year1.getText());
+    	int year1 = Integer.parseInt(t1year2.getText());
+    	textAreaConsole.setText(AnalyzeNames.reportTopname(top_n, "F", year0, year1)); 
+    }
+    
     
     
     // task2
