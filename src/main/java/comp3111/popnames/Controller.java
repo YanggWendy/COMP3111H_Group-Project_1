@@ -10,6 +10,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.RadioButton;
 
 public class Controller {
 
@@ -71,6 +72,37 @@ public class Controller {
     private TextArea textAreaConsole;
     
     
+    
+    // task1
+    @FXML
+    private TextField t1TopN;
+
+    @FXML
+    private RadioButton t1genderM;
+
+    @FXML
+    private RadioButton t1genderF;
+
+    @FXML
+    private TextField t1year2;
+
+    @FXML
+    private TextField t1year1;
+    
+    @FXML
+    void doT1Report() {
+    	t1genderM.setUserData("M");
+    	t1genderF.setUserData("F");	
+    	int top_n = Integer.parseInt(t1TopN.getText());
+    	String  gender = T1.getSelectedToggle().getUserData().toString();
+    	//System.out.print(gender);
+    	int year0 = Integer.parseInt(t1year1.getText());
+    	int year1 = Integer.parseInt(t1year2.getText());
+    	textAreaConsole.setText(AnalyzeNames.reportTopname(top_n, gender, year0, year1)); 
+    }
+    
+    
+    
     // task2
     @FXML
     private TextField t2name;
@@ -85,12 +117,20 @@ public class Controller {
     private Button t2button;
     
     @FXML
+    private RadioButton t2genderM;
+
+    @FXML
+    private RadioButton t2genderF;
+    
+    @FXML
     void doT2Report() {
+    	t2genderM.setUserData("M");
+    	t2genderF.setUserData("F");	
     	String name = t2name.getText();
-//    	String gender = T11.getUserData().toString();
+    	String  gender = T11.getSelectedToggle().getUserData().toString();
     	int year0 = Integer.parseInt(t2year0.getText());
     	int year1 = Integer.parseInt(t2year1.getText());
-    	textAreaConsole.setText(AnalyzeNames.reportPopularity(name, "F", year0, year1)); // radio button not ready so input F here for now.
+    	textAreaConsole.setText(AnalyzeNames.reportPopularity(name, gender, year0, year1)); // radio button not ready so input F here for now.
     }
     
     /**
