@@ -71,6 +71,8 @@ public class Controller {
     @FXML
     private TextArea textAreaConsole;
     
+    
+    
     // task1
     @FXML
     private TextField t1TopN;
@@ -89,11 +91,14 @@ public class Controller {
     
     @FXML
     void doT1Report() {
+    	t1genderM.setUserData("M");
+    	t1genderF.setUserData("F");	
     	int top_n = Integer.parseInt(t1TopN.getText());
-//    	String gender = T11.getUserData().toString();
+    	String  gender = T1.getSelectedToggle().getUserData().toString();
+    	//System.out.print(gender);
     	int year0 = Integer.parseInt(t1year1.getText());
     	int year1 = Integer.parseInt(t1year2.getText());
-    	textAreaConsole.setText(AnalyzeNames.reportTopname(top_n, "F", year0, year1)); 
+    	textAreaConsole.setText(AnalyzeNames.reportTopname(top_n, gender, year0, year1)); 
     }
     
     
@@ -112,12 +117,20 @@ public class Controller {
     private Button t2button;
     
     @FXML
+    private RadioButton t2genderM;
+
+    @FXML
+    private RadioButton t2genderF;
+    
+    @FXML
     void doT2Report() {
+    	t2genderM.setUserData("M");
+    	t2genderF.setUserData("F");	
     	String name = t2name.getText();
-//    	String gender = T11.getUserData().toString();
+    	String  gender = T11.getSelectedToggle().getUserData().toString();
     	int year0 = Integer.parseInt(t2year0.getText());
     	int year1 = Integer.parseInt(t2year1.getText());
-    	textAreaConsole.setText(AnalyzeNames.reportPopularity(name, "F", year0, year1)); // radio button not ready so input F here for now.
+    	textAreaConsole.setText(AnalyzeNames.reportPopularity(name, gender, year0, year1)); // radio button not ready so input F here for now.
     }
     
     /**

@@ -73,16 +73,12 @@
                                     <Label layoutX="109.0" layoutY="93.0" text="Name" />
                                     <TextField fx:id="t2name" layoutX="159.0" layoutY="88.0" prefHeight="26.0" prefWidth="88.0" text="David" />
                                     <Label layoutX="277.0" layoutY="93.0" text="Gender: " />
-                                    <RadioButton fx:id="t2gender" layoutX="332.0" layoutY="93.0" mnemonicParsing="false" selected="true" text="Male">
+                                    <RadioButton fx:id="t2genderM" layoutX="332.0" layoutY="93.0" mnemonicParsing="false" selected="true" text="Male">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="T11" />
                                        </toggleGroup>
                                     </RadioButton>
-                                    <RadioButton layoutX="390.0" layoutY="93.0" mnemonicParsing="false" text="Female">
-                                       <toggleGroup>
-                                          <ToggleGroup fx:id="T11" />
-                                       </toggleGroup>
-                                    </RadioButton>
+                                    <RadioButton fx:id="t2genderF" layoutX="390.0" layoutY="93.0" mnemonicParsing="false" text="Female" toggleGroup="$T11" />
                                     <Label layoutX="109.0" layoutY="129.0" text="Period (1880 - 2019): " />
                                     <TextField fx:id="t2year1" layoutX="325.0" layoutY="124.0" prefHeight="27.0" prefWidth="50.0" text="1945" />
                                     <TextField fx:id="t2year0" layoutX="249.0" layoutY="124.0" prefHeight="27.0" prefWidth="50.0" text="1941" />
@@ -106,11 +102,7 @@
                                           <ToggleGroup fx:id="T111" />
                                        </toggleGroup>
                                     </RadioButton>
-                                    <RadioButton layoutX="235.0" layoutY="104.0" mnemonicParsing="false" selected="true" text="Male">
-                                       <toggleGroup>
-                                          <ToggleGroup fx:id="T111" />
-                                       </toggleGroup>
-                                    </RadioButton>
+                                    <RadioButton layoutX="235.0" layoutY="104.0" mnemonicParsing="false" selected="true" text="Male" toggleGroup="$T111" />
                                     <Label layoutX="112.0" layoutY="104.0" text="Gender of Interest: " />
                                     <Label layoutX="112.0" layoutY="138.0" text="Period (1880 - 2019): " />
                                     <TextField layoutX="326.0" layoutY="132.0" prefHeight="27.0" prefWidth="50.0" text="1945" />
