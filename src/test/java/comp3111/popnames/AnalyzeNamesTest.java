@@ -40,4 +40,10 @@ public class AnalyzeNamesTest {
     	assertTrue(name.equals("Desire"));
     }
 
+    @Test
+    public void testReportPopularity() {
+        AnalyzeNames a = new AnalyzeNames();
+        String result = a.reportPopularity("Moe", "female", 1949, 1959);
+        assertTrue(result.equals("{\"gender\":\"female\",\"data\":[],\"name\":\"Moe\"}"));
+    }
 }
