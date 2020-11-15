@@ -3,6 +3,11 @@ package comp3111.popnames;
 import org.apache.commons.csv.*;
 import edu.duke.*;
 import org.json.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import javafx.util.Pair;
 
 public class AnalyzeNames {
 
@@ -207,6 +212,95 @@ public class AnalyzeNames {
 		}
 		
 		mainObj.put("data", arrObj);
+		return mainObj.toString();
+	}
+	
+	/* Task 3: report the names that have shown the largest rise/fall in popularity over a given period
+	 * Return in json format. (For potentially future visualization purpose)
+	 * e.g.
+	 * {"rank_fall2":3741,"ranks_up":3303,"year_fall1":1941,"year_fall2":1944,
+	 * "rank_rise2":513,"year_rise1":1941,"year_rise2":1942,"rank_fall1":1567,
+	 * "name_rise":"Macarthur","rank_rise1":3816,"name_fall":"Marlene","ranks_down":2174}
+	 * */
+	public static String reportTrend(String gender, int year0, int year1) {
+		//check whether input years are within required year range
+		if(year0<1880||year1<1880||year0>2019||year1>2019)
+			return "information on the trend in popularity at the specified year range is not available";
+		
+		//change the value if year0 > year1
+		if(year0 > year1) {
+			int temp = year0;
+			year0 = year1;
+			year1 = temp;
+		}
+		
+		Map<String, List<Pair<Integer, Integer>>> map = new HashMap<>();
+		
+		for(int year = year0; year <= year1; year++) {
+			int rank = 0;
+			for (CSVRecord rec: getFileParser(year)) {
+				if (rec.get(1).equals(gender)) {
+					rank++;
+					String name = rec.get(0);
+					Pair<Integer, Integer> pair = new Pair<Integer, Integer>(year, rank);
+					if(map.containsKey(name)) {
+						map.get(name).add(pair);
+					}
+					else {
+						List<Pair<Integer, Integer>> list = new ArrayList<>();
+						list.add(pair);
+						map.put(name, list);
+					}
+				}
+			}
+		}
+		
+		String nameRise = "", nameFall = "";
+		Pair<Integer, Integer> rankRise = new Pair<>(0, 0);
+		Pair<Integer, Integer> yearRise = new Pair<>(0, 0);
+		Pair<Integer, Integer> rankFall = new Pair<>(0, 0);
+		Pair<Integer, Integer> yearFall = new Pair<>(0, 0);
+		int maxNameRise = 0, maxNameFall = 0;
+		for(String name: map.keySet()) {
+			List<Pair<Integer, Integer>> list = map.get(name);
+			Pair<Integer, Integer> tmpMax = list.get(0), tmpMin = list.get(0);
+			for(Pair<Integer, Integer> pair: list) {
+				int rank = pair.getValue();
+				int year = pair.getKey();
+				if(rank - tmpMin.getValue() > maxNameRise) {
+					nameRise = name;
+					rankRise = new Pair<Integer, Integer>(tmpMin.getValue(), rank);
+					yearRise = new Pair<Integer, Integer>(tmpMin.getKey(), year);
+					maxNameRise = rank - tmpMin.getValue();
+				}
+				if(tmpMax.getValue() - rank > maxNameFall) {
+					nameFall = name;
+					rankFall = new Pair<Integer, Integer>(tmpMax.getValue(), rank);
+					yearFall = new Pair<Integer, Integer>(tmpMax.getKey(), year);
+					maxNameFall = tmpMax.getValue() - rank;
+				}
+				if(rank > tmpMax.getValue()) tmpMax = pair;
+				if(rank < tmpMin.getValue()) tmpMin = pair;
+			}
+		}
+		JSONObject mainObj = new JSONObject();
+		mainObj.put("name_rise", nameFall);
+		mainObj.put("rank_rise1", rankFall.getKey());
+		mainObj.put("rank_rise2", rankFall.getValue());
+		mainObj.put("year_rise1", yearFall.getKey());
+		mainObj.put("year_rise2", yearFall.getValue());
+		mainObj.put("ranks_up", maxNameFall);
+		
+		mainObj.put("name_fall", nameRise);
+		mainObj.put("rank_fall1", rankRise.getKey());
+		mainObj.put("rank_fall2", rankRise.getValue());
+		mainObj.put("year_fall1", yearRise.getKey());
+		mainObj.put("year_fall2", yearRise.getValue());
+		mainObj.put("ranks_down", maxNameRise);
+		
+		System.out.println(nameRise + rankRise.getKey() + " " + rankRise.getValue());
+		System.out.println(nameFall + rankFall.getKey() + " " + rankFall.getValue());
+		
 		return mainObj.toString();
 	}
  
