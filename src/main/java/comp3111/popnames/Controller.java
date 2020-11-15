@@ -133,6 +133,29 @@ public class Controller {
     	textAreaConsole.setText(AnalyzeNames.reportPopularity(name, gender, year0, year1));
     }
     
+ // task3    
+    @FXML
+    private TextField t3year0;    
+    
+    @FXML
+    private TextField t3year1;
+    
+    @FXML
+    private RadioButton t3genderM;
+
+    @FXML
+    private RadioButton t3genderF;
+    
+    @FXML
+    void doT3Report() {
+    	t3genderM.setUserData("M");
+    	t3genderF.setUserData("F");	
+    	String  gender = T111.getSelectedToggle().getUserData().toString();
+    	int year0 = Integer.parseInt(t3year0.getText());
+    	int year1 = Integer.parseInt(t3year1.getText());
+    	textAreaConsole.setText(AnalyzeNames.reportTrend(gender, year0, year1)); // radio button not ready so input F here for now.
+    }
+    
     /**
      *  Task Zero
      *  To be triggered by the "Summary" button on the Task Zero Tab 
