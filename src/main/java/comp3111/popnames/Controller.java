@@ -194,6 +194,9 @@ public class Controller {
 
      @FXML
      private TextField t4vintageYear;
+
+    @FXML
+    private TextArea a1output;
      
      @FXML
  	 void doT4Recommend() {
@@ -202,15 +205,17 @@ public class Controller {
  		int dadYOB = Integer.parseInt(t4dadYOB.getText());
  		int momYOB = Integer.parseInt(t4momYOB.getText());
  		String vintageYear_s = t4vintageYear.getText();
- 		int len = vintageYear_s.length();
- 		System.out.println("len = "+len);
- 		if(len == 0) {
- 			textAreaConsole.setText("Set the default vintage year 2019\n"+PredicReport.recomendName(dadName, momName, dadYOB, momYOB,2019));	
+ 		if (dadName.length() == 0 || momName.length() == 0) {
+            a1output.setText("Please enter valid parent names!");
+            return;
+        }
+ 		if(vintageYear_s.length() == 0) {
+            a1output.setText("Set the default vintage year 2019\n"+PredicReport.recomendName(dadName, momName, dadYOB, momYOB,2019));
  		}
  		else{ 
  			int vintageYear = Integer.parseInt(t4vintageYear.getText());
-			textAreaConsole.setText(PredicReport.recomendName(dadName, momName, dadYOB, momYOB,vintageYear)); 
-			} 		
+            a1output.setText(PredicReport.recomendName(dadName, momName, dadYOB, momYOB,vintageYear));
+ 		}
  	}
     
     /**
