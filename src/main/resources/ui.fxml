@@ -119,7 +119,18 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="412.0" prefWidth="719.0">
                            <children>
-                              <TextArea layoutX="40.0" layoutY="26.0" prefHeight="242.0" prefWidth="638.0" text="Develop and implement an online service using empirical data to help make informed decisions on naming their newborn babies.  Sample Scenario of Application: (i) Parents seeking advices on naming their babies; (ii) A couple seeking advices on naming their pets&#10;&#10;Input&#10;* iDadName, iMomName: Names of the baby’s dad and mom&#10;* iDadYOB, iMomYOB: Years of birth of the baby’s dad and mom&#10;* iVintageYear (optional): A year to be chosen from 1880 to 2019; If not chosen, set the value of iVintageYear to 2019&#10;&#10;Output&#10;* oBoyName: Recommended name for baby boy according to the NK-T4 Algorithm&#10;* oGirlName: Recommended name for baby girl according to the NK-T4 Algorithm&#10;* plus, WOW factor on user experience and algorithm design!" wrapText="true" />
+                              <TextArea layoutX="41.0" layoutY="14.0" prefHeight="89.0" prefWidth="637.0" text="Develop and implement an online service using empirical data to help make informed decisions on naming their newborn babies.  Sample Scenario of Application: (i) Parents seeking advices on naming their babies; (ii) A couple seeking advices on naming their pets&#10;&#10;Input&#10;* iDadName, iMomName: Names of the baby’s dad and mom&#10;* iDadYOB, iMomYOB: Years of birth of the baby’s dad and mom&#10;* iVintageYear (optional): A year to be chosen from 1880 to 2019; If not chosen, set the value of iVintageYear to 2019&#10;&#10;Output&#10;* oBoyName: Recommended name for baby boy according to the NK-T4 Algorithm&#10;* oGirlName: Recommended name for baby girl according to the NK-T4 Algorithm&#10;* plus, WOW factor on user experience and algorithm design!" wrapText="true" />
+                              <Label layoutX="65.0" layoutY="118.0" text="dadName" />
+                              <TextField fx:id="t4dadName" layoutX="138.0" layoutY="113.0" prefHeight="27.0" prefWidth="85.0" text="David" />
+                              <TextField fx:id="t4momName" layoutX="138.0" layoutY="159.0" prefHeight="27.0" prefWidth="86.0" text="May" />
+                              <Label layoutX="65.0" layoutY="164.0" text="momName" />
+                              <Label layoutX="307.0" layoutY="118.0" text="dadYOB" />
+                              <TextField fx:id="t4dadYOB" layoutX="388.0" layoutY="113.0" prefHeight="27.0" prefWidth="78.0" text="1988" />
+                              <TextField fx:id="t4momYOB" layoutX="389.0" layoutY="159.0" prefHeight="27.0" prefWidth="77.0" text="1990" />
+                              <Label layoutX="307.0" layoutY="164.0" text="momYOB" />
+                              <Label layoutX="95.0" layoutY="214.0" text="vintageYear" />
+                              <TextField fx:id="t4vintageYear" layoutX="181.0" layoutY="209.0" prefHeight="27.0" prefWidth="97.0" text="2019" />
+                              <Button layoutX="335.0" layoutY="209.0" mnemonicParsing="false" onAction="#doT4Recommend" text="Recommendation" />
                            </children>
                         </AnchorPane>
                     </content>
