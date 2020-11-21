@@ -29,7 +29,7 @@ dependencies {
 	
     testImplementation 'junit:junit:4.12'
     compile fileTree(include: ['*.jar'], dir: 'libs')
-
+	compile 'com.jfoenix:jfoenix:9.0.10'
 }
 
 jacocoTestReport {
