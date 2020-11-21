@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="687.0" stylesheets="@dark-theme.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="comp3111.popnames.Controller">
+   <children>
+      <LineChart layoutX="351.0" layoutY="89.0" prefHeight="126.0" prefWidth="285.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" tickLabelFill="#cdc6c6" />
+        </yAxis>
+      </LineChart>
+      <BarChart layoutX="351.0" layoutY="227.0" prefHeight="120.0" prefWidth="285.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" tickLabelFill="#d7d2d2" />
+        </yAxis>
+      </BarChart>
+      <Label layoutX="475.0" layoutY="219.0" prefHeight="20.0" prefWidth="82.0" text="Count" />
+      <Label layoutX="481.0" layoutY="361.0" prefHeight="17.0" prefWidth="53.0" text="Rank" />
+      <TableView fx:id="t2Table" layoutX="32.0" layoutY="93.0" prefHeight="263.0" prefWidth="317.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+   </children>
+</Pane>
