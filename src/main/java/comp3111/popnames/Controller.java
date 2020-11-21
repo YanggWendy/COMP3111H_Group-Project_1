@@ -181,15 +181,14 @@ public class Controller {
  		int momYOB = Integer.parseInt(t4momYOB.getText());
  		String vintageYear_s = t4vintageYear.getText();
  		int len = vintageYear_s.length();
- 		//System.out.println(vintageYear_s);
- 		//System.out.println("len = "+len);
- 		if(len != 0||Integer.parseInt(vintageYear_s)>2019||Integer.parseInt(vintageYear_s)<1880) {
- 			int vintageYear = Integer.parseInt(t4vintageYear.getText());
- 			textAreaConsole.setText(PredicReport.recomendName(dadName, momName, dadYOB, momYOB,vintageYear)); 
- 			//System.out.println(vintageYear);
+ 		System.out.println("len = "+len);
+ 		if(len == 0) {
+ 			textAreaConsole.setText("Set the default vintage year 2019\n"+PredicReport.recomendName(dadName, momName, dadYOB, momYOB,2019));	
  		}
- 		else{ textAreaConsole.setText(PredicReport.recomendName(dadName, momName, dadYOB, momYOB,2019)); }
- 		
+ 		else{ 
+ 			int vintageYear = Integer.parseInt(t4vintageYear.getText());
+			textAreaConsole.setText(PredicReport.recomendName(dadName, momName, dadYOB, momYOB,vintageYear)); 
+			} 		
  	}
     
     /**

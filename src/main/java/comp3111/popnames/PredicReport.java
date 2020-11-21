@@ -10,6 +10,10 @@ public class PredicReport {
 		if(dadYOB<1880||dadYOB>2019||momYOB<1880||momYOB>2019) {
 			return "information on the parents' year of birth is out of range";
  		}
+		
+		if(vintage_year<1880||vintage_year>2019) {
+			return "information on the vintage year is out of range, please choose another year!";
+ 		}
 		int dadRank = AnalyzeNames.getRank(dadYOB,dadName,"M");
 		int momRank = AnalyzeNames.getRank(momYOB,momName,"F");
 		if(dadRank == -1)
