@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.testfx.assertions.api.Assertions;
 import org.testfx.framework.junit.ApplicationTest;
 
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -30,12 +31,6 @@ public class JavaFXTest extends ApplicationTest {
 		t = (TextArea)s.lookup("#textAreaConsole");
 	}
 
-	@Test
-	public void testTextAreaConsole() {
-		t.setText("David");
-		String s = t.getText();
-		assertTrue(s.equals("David"));
-	}
     
 	@Test
 	public void testButtonRankTrue() {	
@@ -59,7 +54,17 @@ public class JavaFXTest extends ApplicationTest {
 		clickOn("#buttonRankF");
 		//sleep(1000);
 		String s2 = t.getText();
+		//assertFalse(s1.equals(s2));
 		assertFalse(s1.equals(s2));
 	}
+	
+	
+	@Test
+	public void testTextAreaConsole() {	
+		t.setText("David");
+		String s = t.getText();
+		assertTrue(s.equals("David"));
+	}
+	
 		
 }

@@ -156,6 +156,41 @@ public class Controller {
     	textAreaConsole.setText(AnalyzeNames.reportTrend(gender, year0, year1)); // radio button not ready so input F here for now.
     }
     
+    
+ // Task 4 Recommendation on Names for Newborn Babies
+ 	@FXML
+     private TextField t4dadName;
+
+     @FXML
+     private TextField t4momName;
+
+     @FXML
+     private TextField t4dadYOB;
+
+     @FXML
+     private TextField t4momYOB;
+
+     @FXML
+     private TextField t4vintageYear;
+     
+     @FXML
+ 	 void doT4Recommend() {
+ 		String dadName = t4dadName.getText();
+ 		String momName = t4momName.getText();
+ 		int dadYOB = Integer.parseInt(t4dadYOB.getText());
+ 		int momYOB = Integer.parseInt(t4momYOB.getText());
+ 		String vintageYear_s = t4vintageYear.getText();
+ 		int len = vintageYear_s.length();
+ 		System.out.println("len = "+len);
+ 		if(len == 0) {
+ 			textAreaConsole.setText("Set the default vintage year 2019\n"+PredicReport.recomendName(dadName, momName, dadYOB, momYOB,2019));	
+ 		}
+ 		else{ 
+ 			int vintageYear = Integer.parseInt(t4vintageYear.getText());
+			textAreaConsole.setText(PredicReport.recomendName(dadName, momName, dadYOB, momYOB,vintageYear)); 
+			} 		
+ 	}
+    
     /**
      *  Task Zero
      *  To be triggered by the "Summary" button on the Task Zero Tab 
