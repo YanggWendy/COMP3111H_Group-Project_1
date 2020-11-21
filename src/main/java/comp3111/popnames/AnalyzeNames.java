@@ -156,10 +156,7 @@ public class AnalyzeNames {
 		return mainObj.toString();
 	}	
 	
-	
-	
-	
-	
+
 	/* Task 2: report the popularity of a given name in a certain time range
 	 * Return in json format. (For potentially future visualization purpose)
 	 * e.g.
@@ -169,16 +166,17 @@ public class AnalyzeNames {
 	 * */
 	public static String reportPopularity(String name, String gender, int year0, int year1) {
 		//check whether input years are within required year range
-		if(year0<1880||year1<1880||year0>2019||year1>2019)
-		{return "information on the top name at the specified year range is not available";}
+		if (year0<1880 || year1<1880 || year0>2019 || year1>2019)
+			return "information on the top name at the specified year range is not available";
 		
 		//change the value if year0 > year1
-		if(year0>year1)
+		if (year0 >year1)
 		{
 			int temp = year0;
 			year0 = year1;
 			year1 = temp;
 		}
+
 		JSONObject mainObj = new JSONObject();
 		mainObj.put("name", name);
 		mainObj.put("gender", gender);

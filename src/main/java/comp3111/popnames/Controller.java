@@ -4,13 +4,14 @@
 package comp3111.popnames;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Labeled;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.RadioButton;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Controller {
 
@@ -72,7 +73,6 @@ public class Controller {
     private TextArea textAreaConsole;
     
     
-    
     // task1
     @FXML
     private TextField t1TopN;
@@ -94,11 +94,10 @@ public class Controller {
     	t1genderM.setUserData("M");
     	t1genderF.setUserData("F");	
     	int top_n = Integer.parseInt(t1TopN.getText());
-    	String  gender = T1.getSelectedToggle().getUserData().toString();
-    	//System.out.print(gender);
+    	String gender = T1.getSelectedToggle().getUserData().toString();
     	int year0 = Integer.parseInt(t1year1.getText());
     	int year1 = Integer.parseInt(t1year2.getText());
-    	textAreaConsole.setText(AnalyzeNames.reportTopname(top_n, gender, year0, year1)); 
+//    	textAreaConsole.setText(AnalyzeNames.reportTopname(top_n, gender, year0, year1));
     }
     
     
@@ -121,7 +120,10 @@ public class Controller {
 
     @FXML
     private RadioButton t2genderF;
-    
+
+    @FXML
+    private TableView t2Table;
+
     @FXML
     void doT2Report() {
     	t2genderM.setUserData("M");
@@ -130,9 +132,29 @@ public class Controller {
     	String  gender = T11.getSelectedToggle().getUserData().toString();
     	int year0 = Integer.parseInt(t2year0.getText());
     	int year1 = Integer.parseInt(t2year1.getText());
-    	textAreaConsole.setText(AnalyzeNames.reportPopularity(name, gender, year0, year1)); // radio button not ready so input F here for now.
+
+    	// popup window
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/tab2result.fxml"));
+            Pane root = (Pane) loader.load();
+
+            TableColumn year = new TableColumn("Year");
+            TableColumn count = new TableColumn("Count");
+            TableColumn percentage = new TableColumn("Percentage");
+            TableColumn rank = new TableColumn("Rank");
+
+            Stage stage = new Stage();
+            stage.setTitle("Result for "+name);
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-    
+
+
+
  // task3    
     @FXML
     private TextField t3year0;    
@@ -172,6 +194,9 @@ public class Controller {
 
      @FXML
      private TextField t4vintageYear;
+
+    @FXML
+    private TextArea a1output;
      
      @FXML
  	 void doT4Recommend() {
@@ -180,15 +205,17 @@ public class Controller {
  		int dadYOB = Integer.parseInt(t4dadYOB.getText());
  		int momYOB = Integer.parseInt(t4momYOB.getText());
  		String vintageYear_s = t4vintageYear.getText();
- 		int len = vintageYear_s.length();
- 		System.out.println("len = "+len);
- 		if(len == 0) {
- 			textAreaConsole.setText("Set the default vintage year 2019\n"+PredicReport.recomendName(dadName, momName, dadYOB, momYOB,2019));	
+ 		if (dadName.length() == 0 || momName.length() == 0) {
+            a1output.setText("Please enter valid parent names!");
+            return;
+        }
+ 		if(vintageYear_s.length() == 0) {
+            a1output.setText("Set the default vintage year 2019\n"+PredicReport.recomendName(dadName, momName, dadYOB, momYOB,2019));
  		}
  		else{ 
  			int vintageYear = Integer.parseInt(t4vintageYear.getText());
-			textAreaConsole.setText(PredicReport.recomendName(dadName, momName, dadYOB, momYOB,vintageYear)); 
-			} 		
+            a1output.setText(PredicReport.recomendName(dadName, momName, dadYOB, momYOB,vintageYear));
+ 		}
  	}
     
     /**
