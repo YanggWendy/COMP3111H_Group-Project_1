@@ -200,13 +200,26 @@ public class MainController {
  	 void doT4Recommend() {
  		String dadName = t4dadName.getText();
  		String momName = t4momName.getText();
- 		int dadYOB = Integer.parseInt(t4dadYOB.getText());
- 		int momYOB = Integer.parseInt(t4momYOB.getText());
+ 		String dadYOB_s = t4dadYOB.getText();
+ 		String momYOB_s = t4momYOB.getText();
+ 		int dadYOB;
+ 		int momYOB;
+ 		if(dadYOB_s.length()==0||momYOB_s.length()==0) {
+ 			a1output.setText("Please enter valid parent YOB!");
+            return;
+ 		}else {
+ 			dadYOB = Integer.parseInt(t4dadYOB.getText());
+ 	 		momYOB = Integer.parseInt(t4momYOB.getText());
+ 		}
+ 		
  		String vintageYear_s = t4vintageYear.getText();
+ 			
  		if (dadName.length() == 0 || momName.length() == 0) {
             a1output.setText("Please enter valid parent names!");
             return;
         }
+ 		
+ 		
  		if(vintageYear_s.length() == 0) {
             a1output.setText("Set the default vintage year 2019\n"+ PredicReport.recomendName(dadName, momName, dadYOB, momYOB,2019));
  		}
@@ -216,6 +229,135 @@ public class MainController {
  		}
  	}
     
+     
+     //T5 Recommendation
+     @FXML
+     private ToggleGroup A21;
+
+     @FXML
+     private ToggleGroup A22;
+
+     @FXML
+     private TextField t5YOB;
+
+     @FXML
+     private TextField t5Name;
+
+     @FXML
+     private TextArea a2output;
+     
+     @FXML
+     private RadioButton t5genderM;
+
+     @FXML
+     private RadioButton t5genderF;
+
+     @FXML
+     private RadioButton t5Younge;
+
+     @FXML
+     private RadioButton t5Old;
+    
+     @FXML
+ 	 void doT5Recommend() {
+    	t5genderM.setUserData("M");
+     	t5genderF.setUserData("F"); 
+     	t5Younge.setUserData("Younger");
+     	t5Old.setUserData("Older"); 
+    	 
+    	String gender = A21.getSelectedToggle().getUserData().toString();
+ 		String name = t5Name.getText();
+ 		//check YOB
+ 		String YOB_s= t5YOB.getText().toString();
+ 		int YOB;
+ 		if(YOB_s.length()==0) {
+ 			a2output.setText("Please enter valid YOB!");
+ 			return; 
+ 		}
+ 		else{YOB = Integer.parseInt(t5YOB.getText());}
+ 		
+ 		String preference = A22.getSelectedToggle().getUserData().toString();
+ 		//System.out.println(YOB);
+ 		if (name.length() == 0) {
+ 			a2output.setText("Please enter valid name!");
+            return;
+        }
+ 		else{ 
+ 			a2output.setText(PredicReport.recomendName_task5(name, YOB, gender, preference));
+ 		}
+ 	} 
+     
+     //T6
+     @FXML
+     private ToggleGroup A31;
+
+     @FXML
+     private ToggleGroup A33;
+
+     @FXML
+     private TextField a3name;
+
+     @FXML
+     private TextField a3yob;
+
+     @FXML
+     private TextArea A3output;
+
+     @FXML
+     private TextField a3matename;
+
+     @FXML
+     private ToggleGroup A32;
+     
+     @FXML
+     private RadioButton t6male;
+
+     @FXML
+     private RadioButton t6female;
+
+     @FXML
+     private RadioButton t6Young;
+
+     @FXML
+     private RadioButton t6Old;
+     
+     @FXML
+     private RadioButton t6mateM;
+
+     @FXML
+     private RadioButton t6mateF;
+     
+     @FXML
+ 	 void doT6Recommend() {
+    	t6male.setUserData("M");
+    	t6female.setUserData("F"); 
+    	t6mateM.setUserData("M");
+    	t6mateF.setUserData("F");
+    	t6Young.setUserData("Younger");
+    	t6Old.setUserData("Older");  
+    	
+ 		String Name = a3name.getText();
+ 		String mateName = a3matename.getText();
+ 		String gender = A31.getSelectedToggle().getUserData().toString(); 
+ 		String mate_gender = A32.getSelectedToggle().getUserData().toString();
+ 		String preference = A33.getSelectedToggle().getUserData().toString();
+ 		int YOB;
+ 		String YOB_s = a3yob.getText();
+ 		if (Name.length() == 0 || mateName.length() == 0) {
+ 			A3output.setText("Please enter valid names!");
+            return;
+        }
+ 		if(YOB_s.length() == 0) {
+ 			A3output.setText("Please enter valid YOB!");
+            return;
+ 		}
+ 		else{ 
+ 			YOB = Integer.parseInt(a3yob.getText());
+ 		}
+ 		A3output.setText(PredicReport.recomendName_task6(Name, mateName, YOB, gender,mate_gender,preference));
+ 		
+ 	} 
+     
     /**
      *  Task Zero
      *  To be triggered by the "Summary" button on the Task Zero Tab 
