@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="420.0" prefWidth="668.0" stylesheets="@dark-theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp3111.popnames.Controller">
+<VBox prefHeight="420.0" prefWidth="668.0" stylesheets="@dark-theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp3111.popnames.MainController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" prefHeight="438.0" prefWidth="767.0">
       <children>
@@ -74,7 +74,7 @@
                            <children>
                               <ImageView fitHeight="323.0" fitWidth="557.0" layoutX="39.0" layoutY="-15.0">
                                  <image>
-                                    <Image url="@test.png" />
+                                    <Image url="@images/test.png" />
                                  </image>
                               </ImageView>
                           <AnchorPane layoutX="202.0" layoutY="162.0" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="430.0">
