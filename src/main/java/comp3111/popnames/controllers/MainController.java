@@ -113,9 +113,6 @@ public class MainController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-//    	textAreaConsole.setText(AnalyzeNames.reportTopname(top_n, gender, year0, year1));
     }
     
     
