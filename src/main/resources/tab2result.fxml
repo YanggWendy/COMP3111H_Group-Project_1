@@ -7,11 +7,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="687.0" stylesheets="@dark-theme.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="comp3111.popnames.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="687.0" stylesheets="@dark-theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <LineChart layoutX="351.0" layoutY="89.0" prefHeight="126.0" prefWidth="285.0">
+      <LineChart layoutX="392.0" layoutY="89.0" prefHeight="126.0" prefWidth="285.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -19,7 +21,7 @@
           <NumberAxis side="LEFT" tickLabelFill="#cdc6c6" />
         </yAxis>
       </LineChart>
-      <BarChart layoutX="351.0" layoutY="227.0" prefHeight="120.0" prefWidth="285.0">
+      <BarChart layoutX="392.0" layoutY="229.0" prefHeight="120.0" prefWidth="285.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -27,13 +29,20 @@
           <NumberAxis side="LEFT" tickLabelFill="#d7d2d2" />
         </yAxis>
       </BarChart>
-      <Label layoutX="475.0" layoutY="219.0" prefHeight="20.0" prefWidth="82.0" text="Count" />
-      <Label layoutX="481.0" layoutY="361.0" prefHeight="17.0" prefWidth="53.0" text="Rank" />
-      <TableView fx:id="t2Table" layoutX="32.0" layoutY="93.0" prefHeight="263.0" prefWidth="317.0">
+      <Label layoutX="531.0" layoutY="217.0" prefHeight="20.0" prefWidth="82.0" text="Count" />
+      <Label layoutX="531.0" layoutY="357.0" prefHeight="17.0" prefWidth="53.0" text="Rank" />
+      <TableView fx:id="t2table" layoutX="36.0" layoutY="97.0" prefHeight="260.0" prefWidth="343.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn fx:id="yearCol" prefWidth="78.0" text="Year" />
+            <TableColumn fx:id="countCol" prefWidth="78.0" text="Count" />
+            <TableColumn fx:id="rankCol" prefWidth="78.0" text="Rank" />
+            <TableColumn fx:id="percentCol" prefWidth="85.0" text="Percentage" />
         </columns>
       </TableView>
+      <ImageView fitHeight="196.0" fitWidth="404.0" layoutX="-109.0" layoutY="-1.0">
+         <image>
+            <Image url="@t2title.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -122,9 +123,6 @@ public class Controller {
     private RadioButton t2genderF;
 
     @FXML
-    private TableView t2Table;
-
-    @FXML
     void doT2Report() {
     	t2genderM.setUserData("M");
     	t2genderF.setUserData("F");	
@@ -135,17 +133,20 @@ public class Controller {
 
     	// popup window
         try {
+            if (year0<1880 || year1<1880 || year0>2019 || year1>2019) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Year out of range");
+                alert.setHeaderText(null);
+                alert.setContentText("Please input years between 1880 and 2019!");
+                alert.showAndWait();
+                return;
+            }
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/tab2result.fxml"));
-            Pane root = (Pane) loader.load();
-
-            TableColumn year = new TableColumn("Year");
-            TableColumn count = new TableColumn("Count");
-            TableColumn percentage = new TableColumn("Percentage");
-            TableColumn rank = new TableColumn("Rank");
-
+            loader.setController(new TableController(name, gender, year0, year1));
             Stage stage = new Stage();
             stage.setTitle("Result for "+name);
+            Pane root = (Pane) loader.load();
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
