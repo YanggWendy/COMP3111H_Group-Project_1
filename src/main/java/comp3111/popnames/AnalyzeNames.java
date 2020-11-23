@@ -109,12 +109,7 @@ public class AnalyzeNames {
 	 * 	{"year":"2001", "Top Name":["Top1":Andy, "Top2":Mark,..."Top12":Jimmy]}]
 	 * }
 	 * */
-	public static String reportTopname(int top_N, String gender, int year0, int year1) {
-		//check whether input years are within required year range
-		if(year0<1880||year1<1880||year0>2019||year1>2019)
-		{return "information on the top name at the specified year range is not available";}
-		
-		
+	public static String[][] reportTopname(int top_N, String gender, int year0, int year1) {
 		//change the value if year0 > year1
 		if(year0>year1)
 		{
@@ -122,41 +117,28 @@ public class AnalyzeNames {
 			year0 = year1;
 			year1 = temp;
 		}
-		JSONObject mainObj = new JSONObject();
-		mainObj.put("Top N", top_N);
-		mainObj.put("gender", gender);
-		mainObj.put("year begin", year0);
-		mainObj.put("year end", year1);
-		JSONArray arrObj = new JSONArray();
+
+		String[][] arr = new String[year1-year0+2][top_N+1];
+		arr[0][0] = "Year";
+		for (int i = 1; i < top_N+1; i++) {
+			arr[0][i] = "Top" + Integer.toString(i);
+		}
 		
 		for (int year = year0; year <= year1; year++) {
 			int rank = 1;
-			JSONObject innerObj = new JSONObject();
-			innerObj.put("year", year);
-			JSONArray innerarrObj = new JSONArray();
-			JSONObject top_n_Obj = new JSONObject();
 			for (CSVRecord rec: getFileParser(year)) {
-				if(rank<=top_N) 
-				{
-					if (rec.get(1).equals(gender)) 
-					{
-						top_n_Obj.put(String.format("Top %d", rank), rec.get(0));
+				if(rank <= top_N) {
+					if (rec.get(1).equals(gender)) {
+						int i = year-year0+1;
+						arr[i][0] = Integer.toString(year);
+						arr[i][rank] = rec.get(0);
 						rank++;
 					}
 				}
 			}
-			if(rank<top_N) 
-			{
-				return String.format("information on the top name at the specified top N is not available in year %d.",year);
-			}
-			innerarrObj.put(top_n_Obj);
-			innerObj.put("Top Name", innerarrObj);
-			arrObj.put(innerObj);	
-			
 		}
-		
-		mainObj.put("data", arrObj);
-		return mainObj.toString();
+
+		return arr;
 	}	
 	
 

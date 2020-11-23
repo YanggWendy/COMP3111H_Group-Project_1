@@ -1,5 +1,7 @@
-package comp3111.popnames;
+package comp3111.popnames.controllers;
 
+import comp3111.popnames.AnalyzeNames;
+import comp3111.popnames.Year;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -9,7 +11,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TableController implements Initializable {
+public class Table2Controller implements Initializable {
     @FXML private TableView<Year> t2table;
     @FXML private TableColumn<Year, Integer> yearCol;
     @FXML private TableColumn<Year, Integer> countCol;
@@ -21,7 +23,7 @@ public class TableController implements Initializable {
     int year0;
     int year1;
 
-    public TableController(String name, String gender, int year0, int year1) {
+    public Table2Controller(String name, String gender, int year0, int year1) {
         this.name = name;
         this.gender = gender;
         this.year0 = year0;
