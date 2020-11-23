@@ -41,7 +41,7 @@
       </TableView>
       <ImageView fitHeight="196.0" fitWidth="404.0" layoutX="-109.0" layoutY="-1.0">
          <image>
-            <Image url="@t2title.png" />
+            <Image url="@images/t2title.png" />
          </image>
       </ImageView>
    </children>
