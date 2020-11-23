@@ -1,5 +1,8 @@
 package comp3111.popnames;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import org.apache.commons.csv.*;
 import edu.duke.*;
 import org.json.*;
@@ -158,16 +161,10 @@ public class AnalyzeNames {
 	
 
 	/* Task 2: report the popularity of a given name in a certain time range
-	 * Return in json format. (For potentially future visualization purpose)
-	 * e.g.
-	 * {"name":"David", "gender":"male", "data":[
-	 * 	{"year":2012, "rank":123, "count":66666, "percentage":3.2},
-	 * 	{"year":2013, "rank":101, "count":67776, "percentage":4.2}]}
-	 * */
-	public static String reportPopularity(String name, String gender, int year0, int year1) {
-		//check whether input years are within required year range
-		if (year0<1880 || year1<1880 || year0>2019 || year1>2019)
-			return "information on the top name at the specified year range is not available";
+	 * Return as an array list
+	*/
+	public static ObservableList<Year> reportPopularity(String name, String gender, int year0, int year1) {
+		ObservableList<Year> years = FXCollections.observableArrayList();
 		
 		//change the value if year0 > year1
 		if (year0 >year1)
@@ -177,11 +174,6 @@ public class AnalyzeNames {
 			year1 = temp;
 		}
 
-		JSONObject mainObj = new JSONObject();
-		mainObj.put("name", name);
-		mainObj.put("gender", gender);
-		JSONArray arrObj = new JSONArray();
-		
 		for (int year = year0; year <= year1; year++) {
 			boolean found = false;
 			int totalNum = 0;
@@ -201,17 +193,11 @@ public class AnalyzeNames {
 			}
 			
 			if (found) {
-				JSONObject entryObj = new JSONObject();
-				entryObj.put("year", year);
-				entryObj.put("rank", oRank);
-				entryObj.put("count", count);
-				entryObj.put("percentage", count / (float)totalNum);
-				arrObj.put(entryObj);
+				years.add(new Year(year, count, rank, count / (float)totalNum));
 			}			
 		}
-		
-		mainObj.put("data", arrObj);
-		return mainObj.toString();
+
+		return years;
 	}
 	
 	/* Task 3: report the names that have shown the largest rise/fall in popularity over a given period
