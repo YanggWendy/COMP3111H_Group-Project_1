@@ -108,39 +108,41 @@ public class PredicReport {
 				return "information on the year of birth cannot predict older soulmate!";
 	 		}
 			
-			float Rank = AnalyzeNames.getRank(YOB,Name,gender);
+			Double Rank = Double.valueOf(AnalyzeNames.getRank(YOB,Name,gender));
 			
 			if(Rank == -1)
 			{
 				int uppernum = AnalyzeNames.get_total_Rank(YOB,gender);
-				Rank = rand.nextInt(uppernum);
+				Rank = Double.valueOf(rand.nextInt(uppernum) + 1);
 			}
-			System.out.println("rank "+Rank);
-			float Rank_mate;
+			//System.out.println("rank "+Rank);
+			Double Rank_mate;
 			
-			if(prefer=="Younger") {		
-				Rank_mate = AnalyzeNames.getRank(YOB-1,mateName,mategender);
-				
-				if(Rank_mate == -1)
-				{
-					int uppernum = AnalyzeNames.get_total_Rank(YOB-1,mategender);
-					Rank_mate = rand.nextInt(uppernum);
-				}
-				//System.out.println(Rank_mate);
-			}else {			
-				Rank_mate = AnalyzeNames.getRank(YOB+1,mateName,mategender);
+			if(prefer.equals("Younger")) {		
+				Rank_mate = Double.valueOf(AnalyzeNames.getRank(YOB+1,mateName,mategender));
 				
 				if(Rank_mate == -1)
 				{
 					int uppernum = AnalyzeNames.get_total_Rank(YOB+1,mategender);
-					Rank_mate = rand.nextInt(uppernum);
+					Rank_mate = Double.valueOf(rand.nextInt(uppernum) + 1);
+				}
+				//System.out.println(Rank_mate);
+			}else {			
+				Rank_mate = Double.valueOf(AnalyzeNames.getRank(YOB-1,mateName,mategender));
+				
+				if(Rank_mate == -1)
+				{
+					int uppernum = AnalyzeNames.get_total_Rank(YOB-1,mategender);
+					Rank_mate = Double.valueOf(rand.nextInt(uppernum));
 				}
 				//System.out.println(Rank_mate);
 			}
+			//System.out.println("rank_mate "+Rank_mate);
 		
-			int score = (int) ((1 - Math.abs((Rank - Rank_mate))/ (Rank+Rank_mate)) * 100);
+			Double score = ((1.0 - Math.abs((Rank-Rank_mate)) / (Rank+Rank_mate)) * 100.0);
+			score = Double.valueOf(Math.round(score * 100)) / 100.0;
 			String Recommendation = "The mathing score between "+Name+" and " + mateName+ " is ";
-			Recommendation +=score;
+			Recommendation += Double.toString(score);
 			Recommendation += "%!";
 			return Recommendation;
 		}
