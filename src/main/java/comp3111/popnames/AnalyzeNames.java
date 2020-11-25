@@ -187,6 +187,7 @@ public class AnalyzeNames {
 						found = true;
 						oRank = rank;
 						count = Integer.parseInt(rec.get(2));
+						break;
 					}
 					rank++;
 					totalNum += Integer.parseInt(rec.get(2));
@@ -250,21 +251,24 @@ public class AnalyzeNames {
 		for(String name: map.keySet()) {
 			List<Pair<Integer, Integer>> list = map.get(name);
 			Pair<Integer, Integer> tmpMax = list.get(0), tmpMin = list.get(0);
+			Pair<Integer, Integer> lastPair = list.get(0);
 			for(Pair<Integer, Integer> pair: list) {
+				if(pair == list.get(0)) continue;
 				int rank = pair.getValue();
 				int year = pair.getKey();
-				if(rank - tmpMin.getValue() > maxNameRise) {
+				if(rank - lastPair.getValue() > maxNameRise) {
 					nameRise = name;
-					rankRise = new Pair<Integer, Integer>(tmpMin.getValue(), rank);
-					yearRise = new Pair<Integer, Integer>(tmpMin.getKey(), year);
-					maxNameRise = rank - tmpMin.getValue();
+					rankRise = new Pair<Integer, Integer>(lastPair.getValue(), rank);
+					yearRise = new Pair<Integer, Integer>(lastPair.getKey(), year);
+					maxNameRise = rank - lastPair.getValue();
 				}
-				if(tmpMax.getValue() - rank > maxNameFall) {
+				if(lastPair.getValue() - rank > maxNameFall) {
 					nameFall = name;
-					rankFall = new Pair<Integer, Integer>(tmpMax.getValue(), rank);
-					yearFall = new Pair<Integer, Integer>(tmpMax.getKey(), year);
-					maxNameFall = tmpMax.getValue() - rank;
+					rankFall = new Pair<Integer, Integer>(lastPair.getValue(), rank);
+					yearFall = new Pair<Integer, Integer>(lastPair.getKey(), year);
+					maxNameFall = lastPair.getValue() - rank;
 				}
+				lastPair = pair;
 				if(rank > tmpMax.getValue()) tmpMax = pair;
 				if(rank < tmpMin.getValue()) tmpMin = pair;
 			}
@@ -284,8 +288,16 @@ public class AnalyzeNames {
 		mainObj.put("year_fall2", yearRise.getValue());
 		mainObj.put("ranks_down", maxNameRise);
 		
-		System.out.println(nameRise + rankRise.getKey() + " " + rankRise.getValue());
-		System.out.println(nameFall + rankFall.getKey() + " " + rankFall.getValue());
+//		System.out.println(nameRise + " " 
+//							+ yearRise.getKey() + ":"
+//							+ rankRise.getKey() + " "
+//							+ yearRise.getValue() + ":"
+//							+ rankRise.getValue());
+//		System.out.println(nameFall + " " 
+//							+ yearFall.getKey() + ":"
+//							+ rankFall.getKey() + " "
+//							+ yearFall.getValue() + ":"
+//							+ rankFall.getValue());
 		
 		return mainObj.toString();
 	}
