@@ -79,16 +79,16 @@ public class PredicReport {
 		String soulName;
 		
 		if(prefer=="Younger") {		
-			soulName = AnalyzeNames.getName(YOB-1,Rank,soulgender);
-			//System.out.println(soulName);
-			if(soulName=="information on the name at the specified rank is not available") {
-				soulName = AnalyzeNames.getName(YOB-1,1,soulgender);
-			}
-		}else {			
 			soulName = AnalyzeNames.getName(YOB+1,Rank,soulgender);
 			//System.out.println(soulName);
 			if(soulName=="information on the name at the specified rank is not available") {
-				soulName = AnalyzeNames.getName(YOB+1,1,soulgender);}
+				soulName = AnalyzeNames.getName(YOB+1,1,soulgender);
+			}
+		}else {			
+			soulName = AnalyzeNames.getName(YOB-1,Rank,soulgender);
+			//System.out.println(soulName);
+			if(soulName=="information on the name at the specified rank is not available") {
+				soulName = AnalyzeNames.getName(YOB-1,1,soulgender);}
 		}
 	
 		String Recommendation = "Soulmate Name is ";
