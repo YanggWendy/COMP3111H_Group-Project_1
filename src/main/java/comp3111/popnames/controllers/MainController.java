@@ -358,6 +358,49 @@ public class MainController {
  		
  	} 
      
+    // T7
+     @FXML
+     private TextField t7name;
+
+     @FXML
+     private RadioButton t7male;
+
+     @FXML
+     private ToggleGroup A4;
+
+     @FXML
+     private RadioButton t7female;
+
+     @FXML
+     private RadioButton t7pop0;
+
+     @FXML
+     private ToggleGroup A41;
+
+     @FXML
+     private RadioButton t7pop1;
+
+     @FXML
+     private RadioButton t7pop2;
+
+     @FXML
+     private TextArea T7output;
+     
+     @FXML
+     void doT7Recommend() {
+    	t7male.setUserData("M");
+     	t7female.setUserData("F"); 
+     	t7pop0.setUserData("0");
+     	t7pop1.setUserData("1");
+     	t7pop2.setUserData("2");
+     	  
+     	
+  		String Name = t7name.getText();
+  		String gender = A4.getSelectedToggle().getUserData().toString(); 
+  		int popularity = Integer.valueOf(A41.getSelectedToggle().getUserData().toString());
+  		System.out.println("name: " + Name + " gender: " + gender + " popularity: " + popularity);
+     }
+     
     /**
      *  Task Zero
      *  To be triggered by the "Summary" button on the Task Zero Tab 
