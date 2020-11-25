@@ -238,7 +238,32 @@
                   </Tab>
                   <Tab text="Application 4">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="394.0" prefWidth="736.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="394.0" prefWidth="736.0">
+                           <children>
+                              <Label layoutX="190.0" layoutY="73.0" text="Name:" />
+                              <TextField fx:id="t7name" layoutX="258.0" layoutY="67.0" prefHeight="32.0" prefWidth="101.0" text="John" />
+                              <RadioButton fx:id="t7male" layoutX="262.0" layoutY="128.0" mnemonicParsing="false" selected="true" text="Male">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="A4" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="t7female" layoutX="328.0" layoutY="128.0" mnemonicParsing="false" text="Female" toggleGroup="$A4" />
+                              <Label layoutX="185.0" layoutY="126.0" text="Gender:" />
+                              <Label layoutX="174.0" layoutY="167.0" text="Popularity:" />
+                              <RadioButton fx:id="t7pop0" layoutX="262.0" layoutY="169.0" mnemonicParsing="false" selected="true" text="High">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="A41" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="t7pop1" layoutX="328.0" layoutY="169.0" mnemonicParsing="false" text="Medium" toggleGroup="$A41" />
+<!--                                  <toggleGroup>
+                                    <ToggleGroup fx:id="A41" />
+                                 </toggleGroup>
+                              </RadioButton>--> 
+                              <RadioButton fx:id="t7pop2" layoutX="413.0" layoutY="169.0" mnemonicParsing="false" text="Low" toggleGroup="$A41" />
+                              <TextArea fx:id="T7output" layoutX="527.0" layoutY="47.0" prefHeight="324.0" prefWidth="163.0" />
+                              <Button layoutX="333.0" layoutY="224.0" mnemonicParsing="false" onAction="#doT7Recommend" text="Recommendation" />
+                           </children></AnchorPane>
                     </content>
                   </Tab>
               </tabs>
