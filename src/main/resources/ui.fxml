@@ -18,7 +18,7 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" prefHeight="438.0" prefWidth="767.0">
       <children>
-            <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="427.0" prefWidth="719.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="427.0" prefWidth="742.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab fx:id="tabTaskZero" text="Task Zero">
                   <content>
@@ -201,7 +201,7 @@
                   </Tab>
                   <Tab fx:id="tabApp3" text="Application 3">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="394.0" prefWidth="736.0">
                            <children>
                               <Label layoutX="384.0" layoutY="113.0" text="MateGender:" />
                               <RadioButton fx:id="t6male" layoutX="465.0" layoutY="71.0" mnemonicParsing="false" selected="true" text="Male">
@@ -234,6 +234,11 @@
                               <RadioButton fx:id="t6mateF" layoutX="555.0" layoutY="114.0" mnemonicParsing="false" selected="true" text="Female" toggleGroup="$A32" />
                            </children>
                         </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Application 4">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="394.0" prefWidth="736.0" />
                     </content>
                   </Tab>
               </tabs>
