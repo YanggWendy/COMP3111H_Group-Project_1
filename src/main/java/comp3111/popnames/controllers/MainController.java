@@ -11,8 +11,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Pair;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainController {
 
@@ -399,6 +402,12 @@ public class MainController {
   		String gender = A4.getSelectedToggle().getUserData().toString(); 
   		int popularity = Integer.valueOf(A41.getSelectedToggle().getUserData().toString());
   		System.out.println("name: " + Name + " gender: " + gender + " popularity: " + popularity);
+  		List<Pair<String, Integer>> nameList = PredicReport.similarNames(Name, gender, popularity);
+  		String outputString = "";
+  		for(Pair<String, Integer> pair: nameList) {
+  			outputString += pair.getKey() + " " + pair.getValue() + "\n";
+  		}
+  		T7output.setText(outputString);
      }
      
     /**

@@ -212,6 +212,7 @@ public class PredicReport {
 			List<Pair<String, Integer>> returnList = new ArrayList<>();
 			for(int i = 1; i <= 10; i++) {
 				returnList.add(editDistance.poll());
+				if(returnList.get(i-1).getValue() == 0) returnList.remove(--i);
 			}
 			return returnList;
 		}

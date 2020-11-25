@@ -261,8 +261,8 @@
                                  </toggleGroup>
                               </RadioButton>--> 
                               <RadioButton fx:id="t7pop2" layoutX="413.0" layoutY="169.0" mnemonicParsing="false" text="Low" toggleGroup="$A41" />
-                              <TextArea fx:id="T7output" layoutX="113.0" layoutY="246.0" prefHeight="86.0" prefWidth="515.0" />
-                              <Button layoutX="467.0" layoutY="199.0" mnemonicParsing="false" onAction="#doT7Recommend" text="Recommendation" />
+                              <TextArea fx:id="T7output" layoutX="527.0" layoutY="47.0" prefHeight="324.0" prefWidth="163.0" />
+                              <Button layoutX="333.0" layoutY="224.0" mnemonicParsing="false" onAction="#doT7Recommend" text="Recommendation" />
                            </children></AnchorPane>
                     </content>
                   </Tab>
