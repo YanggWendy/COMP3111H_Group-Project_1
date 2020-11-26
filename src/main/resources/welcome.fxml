@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@dark-theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp3111.popnames.controllers.MainController">
+   <children>
+      <Button fx:id="button" layoutX="228.0" layoutY="176.0" mnemonicParsing="false" onAction="#doWelcome" prefHeight="49.0" prefWidth="145.0" stylesheets="@dark-theme.css" text="Start" />
+   </children>
+</Pane>

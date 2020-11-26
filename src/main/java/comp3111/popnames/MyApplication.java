@@ -3,8 +3,9 @@ package comp3111.popnames;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.Scene;
+
 
 
 /**
@@ -33,8 +34,11 @@ import javafx.scene.Scene;
  */
 public class MyApplication extends Application {
 
-    private static final String UI_FILE = "/ui.fxml";  //file in the folder of src/main/resources/
+    //private static final String UI_FILE = "/ui.fxml";  //file in the folder of src/main/resources/
 	
+	
+	private static final String UI_FILE = "/welcome.fxml";  //file in the folder of src/main/resources/
+
 	/** 
 	 * @see javafx.application.Application#start(javafx.stage.Stage)
 	 * 
@@ -44,10 +48,10 @@ public class MyApplication extends Application {
 	public void start(Stage stage) throws Exception {
     	FXMLLoader loader = new FXMLLoader();
     	loader.setLocation(getClass().getResource(UI_FILE));
-   		VBox root = (VBox) loader.load();
+    	Pane root = (Pane) loader.load();
    		Scene scene =  new Scene(root);
    		stage.setScene(scene);
-   		stage.setTitle("Team T-30H: Popular Names ");
+   		stage.setTitle("Weclome to Your Name Journey");
    		stage.show();  
 	}
 
