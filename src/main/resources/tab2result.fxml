@@ -4,7 +4,6 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -13,24 +12,6 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="687.0" stylesheets="@dark-theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <LineChart layoutX="392.0" layoutY="89.0" prefHeight="126.0" prefWidth="285.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" tickLabelFill="#cdc6c6" />
-        </yAxis>
-      </LineChart>
-      <BarChart layoutX="392.0" layoutY="229.0" prefHeight="120.0" prefWidth="285.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" tickLabelFill="#d7d2d2" />
-        </yAxis>
-      </BarChart>
-      <Label layoutX="531.0" layoutY="217.0" prefHeight="20.0" prefWidth="82.0" text="Count" />
-      <Label layoutX="531.0" layoutY="357.0" prefHeight="17.0" prefWidth="53.0" text="Rank" />
       <TableView fx:id="t2table" layoutX="36.0" layoutY="97.0" prefHeight="260.0" prefWidth="343.0">
         <columns>
             <TableColumn fx:id="yearCol" prefWidth="78.0" text="Year" />
@@ -44,5 +25,21 @@
             <Image url="@images/t2title.png" />
          </image>
       </ImageView>
+      <LineChart fx:id="t2LineChart" layoutX="392.0" layoutY="72.0" prefHeight="157.0" prefWidth="269.0" stylesheets="@dark-theme.css" title="Count">
+        <xAxis>
+          <CategoryAxis fx:id="t2line_X" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="t2line_Y" side="LEFT" tickLabelFill="#f2e5e5" />
+        </yAxis>
+      </LineChart>
+      <BarChart fx:id="t2BarChart" barGap="0.0" categoryGap="0.0" layoutX="389.0" layoutY="233.0" prefHeight="157.0" prefWidth="269.0" stylesheets="@dark-theme.css" title="Rank">
+        <xAxis>
+          <CategoryAxis fx:id="t2bar_X" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="t2bar_Y" side="LEFT" tickLabelFill="#e1d4d4" />
+        </yAxis>
+      </BarChart>
    </children>
 </Pane>

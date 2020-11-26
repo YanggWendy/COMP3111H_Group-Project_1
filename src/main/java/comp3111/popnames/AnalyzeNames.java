@@ -3,6 +3,9 @@ package comp3111.popnames;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
+
 import org.apache.commons.csv.*;
 import edu.duke.*;
 import org.json.*;
@@ -53,6 +56,28 @@ public class AnalyzeNames {
 		oReport += String.format("***Unique Names (baby boys) = %,d\n", uniqueBoys);
 		
 		return oReport;
+	}
+	
+	public static int get_count(int year, String gender,String name) {
+		
+		boolean found = false;
+		int count = 0;
+	    for (CSVRecord rec : getFileParser(year)) {
+	        // Increment rank if gender matches param
+	        if (rec.get(1).equals(gender)) {
+	            // Return rank if name matches param
+	            if (rec.get(0).equals(name)) {
+	            	found = true;
+	            	count = Integer.parseInt(rec.get(2));
+	            	break;
+	            }
+	         
+	        }
+	    }
+	    if (found)
+	    	return count;
+	    else
+	    	return -1;
 	}
 	
 	public static int get_total_Rank(int year, String gender) {
@@ -200,6 +225,41 @@ public class AnalyzeNames {
 		}
 
 		return years;
+	}
+	
+	
+	public static XYChart.Series get_line_series(String name, String gender, int year0, int year1, XYChart.Series series){
+		
+		int count;
+	
+		for(int i = year0; i<=year1;i++)
+		{
+			String year = Integer.toString(i);
+			count = get_count(i, gender,name);
+			series.getData().add(new XYChart.Data(year, count));
+		}
+		
+		
+		return series;
+		
+	}
+	
+	
+	public static void get_bar_series(String name, String gender, int year0, int year1,BarChart<?, ?> t2BarChart){
+		
+		int rank;
+	
+		for(int i = year0; i<=year1;i++)
+		{
+			String year = Integer.toString(i);
+			XYChart.Series series = new XYChart.Series();
+			rank = getRank(i,name,gender);
+			series.getData().add(new XYChart.Data(year, rank));
+			t2BarChart.getData().add(series);
+		}
+		
+		
+		
 	}
 	
 	/* Task 3: report the names that have shown the largest rise/fall in popularity over a given period
