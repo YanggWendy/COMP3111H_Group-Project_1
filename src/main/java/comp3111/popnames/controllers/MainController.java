@@ -177,7 +177,18 @@ public class MainController {
     	String  gender = T111.getSelectedToggle().getUserData().toString();
     	int year0 = Integer.parseInt(t3year0.getText());
     	int year1 = Integer.parseInt(t3year1.getText());
-    	textAreaConsole.setText(AnalyzeNames.reportTrend(gender, year0, year1)); // radio button not ready so input F here for now.
+    	
+    	// popup window
+//        try {
+            if (year0<1880 || year1<1880 || year0>2019 || year1>2019) {
+                popupWarning();
+                return;
+            }
+            textAreaConsole.setText(AnalyzeNames.reportTrend(gender, year0, year1)); // radio button not ready so input F here for now.
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+    	
     }
     
     
