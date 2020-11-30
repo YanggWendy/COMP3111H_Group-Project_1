@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@dark-theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp3111.popnames.controllers.MainController">
    <children>
-      <Button fx:id="button" layoutX="228.0" layoutY="176.0" mnemonicParsing="false" onAction="#doWelcome" prefHeight="49.0" prefWidth="145.0" stylesheets="@dark-theme.css" text="Start" />
+      <Button fx:id="button" layoutX="234.0" layoutY="242.0" mnemonicParsing="false" onAction="#doWelcome" prefHeight="34.0" prefWidth="121.0" stylesheets="@dark-theme.css" text="Enter" />
+      <ImageView fitHeight="205.0" fitWidth="544.0" layoutX="22.0" layoutY="30.0">
+         <image>
+            <Image url="@images/a0.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="163.0" layoutY="190.0" prefHeight="20.0" prefWidth="347.0" text="Everything you want to know about names" />
+      <Line endX="386.0" layoutX="108.0" layoutY="174.0" startX="9.0" stroke="WHITE" />
+      <ImageView fitHeight="200.0" fitWidth="200.0" layoutY="200.0">
+         <image>
+            <Image url="@images/fairy.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="186.0" fitWidth="189.0" layoutX="418.0" layoutY="216.0">
+         <image>
+            <Image url="@images/wizard.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
