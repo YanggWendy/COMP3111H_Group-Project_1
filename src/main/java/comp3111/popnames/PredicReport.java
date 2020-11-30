@@ -57,11 +57,11 @@ public class PredicReport {
 			return "information on the year of birth is out of range!";
  		}
 		
-		if(YOB==1880 && prefer=="Younger") {
+		if(YOB==2019 && prefer=="Younger") {
 			return "information on the year of birth cannot predict younger soulmate!";
  		}
 		
-		if(YOB==2019 && prefer=="Older") {
+		if(YOB==1880 && prefer=="Older") {
 			return "information on the year of birth cannot predict older soulmate!";
  		}
 		
@@ -107,11 +107,11 @@ public class PredicReport {
 				return "information on the year of birth is out of range!";
 	 		}
 			
-			if(YOB==1880 && prefer=="Younger") {
+			if(YOB==2019 && prefer=="Younger") {
 				return "information on the year of birth cannot predict younger soulmate!";
 	 		}
 			
-			if(YOB==2019 && prefer=="Older") {
+			if(YOB==1880 && prefer=="Older") {
 				return "information on the year of birth cannot predict older soulmate!";
 	 		}
 			

@@ -270,9 +270,9 @@ public class AnalyzeNames {
 	 * "name_rise":"Macarthur","rank_rise1":3816,"name_fall":"Marlene","ranks_down":2174}
 	 * */
 	public static String reportTrend(String gender, int year0, int year1) {
-		//check whether input years are within required year range
-		if(year0<1880||year1<1880||year0>2019||year1>2019)
-			return "information on the trend in popularity at the specified year range is not available";
+//		//check whether input years are within required year range
+//		if(year0<1880||year1<1880||year0>2019||year1>2019)
+//			return "information on the trend in popularity at the specified year range is not available";
 		
 		//change the value if year0 > year1
 		if(year0 > year1) {
