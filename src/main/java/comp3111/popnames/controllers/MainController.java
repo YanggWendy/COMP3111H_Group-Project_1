@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
@@ -408,6 +409,25 @@ public class MainController {
   			outputString += pair.getKey() + " " + pair.getValue() + "\n";
   		}
   		T7output.setText(outputString);
+     }
+     
+     @FXML
+     private Button button;
+     // do welcome interface
+     @FXML
+     void doWelcome() throws IOException {
+    	Stage primaryStage = (Stage)button.getScene().getWindow();
+
+    	FXMLLoader loader = new FXMLLoader();
+ 		loader.setLocation(getClass().getResource("/ui.fxml"));
+		VBox root = (VBox) loader.load();
+		Scene scene =  new Scene(root);
+		Stage stage = new Stage();
+		stage.setScene(scene);
+		stage.setTitle("Team T-30H: Popular Names ");
+		stage.show();  
+		primaryStage.hide();
+    	 
      }
      
     /**
