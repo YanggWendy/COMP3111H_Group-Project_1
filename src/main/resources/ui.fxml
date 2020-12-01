@@ -20,7 +20,7 @@
       <children>
             <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="427.0" prefWidth="742.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab fx:id="tabTaskZero" text="Name Stats">
+                <Tab fx:id="tabTaskZero" text="Task Zero">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="466.0" prefWidth="719.0">
                            <children>
@@ -45,116 +45,101 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                  <Tab fx:id="tabReport1" text="TopN">
+                  <Tab fx:id="tabReport1" text="Reporting 1">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="384.0" prefWidth="719.0">
                            <children>
                               <Label layoutX="79.0" layoutY="44.0" />
-                              <Label layoutX="172.0" layoutY="213.0" text="Top N (N&gt;=1): " />
-                              <TextField fx:id="t1TopN" layoutX="291.0" layoutY="208.0" prefHeight="32.0" prefWidth="54.0" text="10" />
-                              <Label layoutX="377.0" layoutY="214.0" text="Gender: " />
-                              <RadioButton fx:id="t1genderM" layoutX="436.0" layoutY="215.0" mnemonicParsing="false" selected="true" text="Male">
+                              <Label layoutX="138.0" layoutY="144.0" text="Top N (N&gt;=1): " />
+                              <TextField fx:id="t1TopN" layoutX="257.0" layoutY="139.0" prefHeight="32.0" prefWidth="54.0" text="10" />
+                              <Label layoutX="343.0" layoutY="145.0" text="Gender: " />
+                              <RadioButton fx:id="t1genderM" layoutX="402.0" layoutY="146.0" mnemonicParsing="false" selected="true" text="Male">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="T1" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton fx:id="t1genderF" layoutX="514.0" layoutY="215.0" mnemonicParsing="false" text="Female" toggleGroup="$T1" />
-                              <Label layoutX="174.0" layoutY="261.0" text="Period (1880 - 2019): " />
-                              <TextField fx:id="t1year2" layoutX="462.0" layoutY="255.0" prefHeight="32.0" prefWidth="71.0" text="1945" />
-                              <TextField fx:id="t1year1" layoutX="340.0" layoutY="255.0" prefHeight="32.0" prefWidth="80.0" text="1941" />
-                              <Label layoutX="436.0" layoutY="261.0" text="to" />
-                              <Button layoutX="336.0" layoutY="311.0" mnemonicParsing="false" onAction="#doT1Report" text="REPORT" />
-                              <ImageView fitHeight="159.0" fitWidth="668.0" layoutX="31.0" layoutY="32.0">
-                                 <image>
-                                    <Image url="@images/t1.png" />
-                                 </image>
-                              </ImageView>
+                              <RadioButton fx:id="t1genderF" layoutX="480.0" layoutY="146.0" mnemonicParsing="false" text="Female" toggleGroup="$T1" />
+                              <Label layoutX="140.0" layoutY="192.0" text="Period (1880 - 2019): " />
+                              <TextField fx:id="t1year2" layoutX="428.0" layoutY="186.0" prefHeight="32.0" prefWidth="71.0" text="1945" />
+                              <TextField fx:id="t1year1" layoutX="306.0" layoutY="186.0" prefHeight="32.0" prefWidth="80.0" text="1941" />
+                              <Label layoutX="402.0" layoutY="192.0" text="to" />
+                              <Button layoutX="302.0" layoutY="242.0" mnemonicParsing="false" onAction="#doT1Report" text="REPORT" />
                            </children>
                         </AnchorPane>
                     </content>
                   </Tab>
-                <Tab fx:id="tabReport2" text="Popularity">
+                <Tab fx:id="tabReport2" text="Reporting 2">
                   <content>
                         <AnchorPane prefHeight="346.0" prefWidth="645.0">
                            <children>
-                          <AnchorPane layoutX="173.0" layoutY="169.0" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="430.0">
+                              <ImageView fitHeight="264.0" fitWidth="210.0" layoutX="39.0" layoutY="-15.0">
+                                 <image>
+                                    <Image url="@images/test.png" />
+                                 </image>
+                              </ImageView>
+                          <AnchorPane layoutX="202.0" layoutY="162.0" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="430.0">
                                  <children>
-                                    <Label layoutY="52.0" text="Name" textFill="#d0cbcb">
+                                    <Label layoutX="36.0" layoutY="44.0" text="Name" textFill="#d0cbcb">
                                        <font>
                                           <Font size="15.0" />
                                        </font></Label>
-                                    <TextField fx:id="t2name" layoutX="47.0" layoutY="46.0" prefHeight="32.0" prefWidth="116.0" text="Simon" />
-                                    <Label layoutX="176.0" layoutY="52.0" text="Gender: ">
+                                    <TextField fx:id="t2name" layoutX="83.0" layoutY="38.0" prefHeight="32.0" prefWidth="116.0" text="Simon" />
+                                    <Label layoutX="212.0" layoutY="44.0" text="Gender: ">
                                        <font>
                                           <Font size="14.0" />
                                        </font></Label>
-                                    <RadioButton fx:id="t2genderM" layoutX="242.0" layoutY="52.0" mnemonicParsing="false" selected="true" text="Male">
+                                    <RadioButton fx:id="t2genderM" layoutX="278.0" layoutY="44.0" mnemonicParsing="false" selected="true" text="Male">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="T11" />
                                        </toggleGroup>
                                     </RadioButton>
-                                    <RadioButton fx:id="t2genderF" layoutX="299.0" layoutY="52.0" mnemonicParsing="false" text="Female" toggleGroup="$T11" />
-                                    <Label layoutY="91.0" text="Period (1880 - 2019): " textFill="#dddada">
+                                    <RadioButton fx:id="t2genderF" layoutX="335.0" layoutY="44.0" mnemonicParsing="false" text="Female" toggleGroup="$T11" />
+                                    <Label layoutX="36.0" layoutY="83.0" text="Period (1880 - 2019): " textFill="#dddada">
                                        <font>
                                           <Font size="14.0" />
                                        </font></Label>
-                                    <TextField fx:id="t2year1" layoutX="283.0" layoutY="83.0" prefHeight="32.0" prefWidth="76.0" text="1945" />
-                                    <TextField fx:id="t2year0" layoutX="167.0" layoutY="83.0" prefHeight="32.0" prefWidth="75.0" text="1941" />
-                                    <Label layoutX="252.0" layoutY="88.0" prefHeight="22.0" prefWidth="31.0" text="to" />
-                                    <Button layoutX="129.0" layoutY="132.0" mnemonicParsing="false" onAction="#doT2Report" prefHeight="9.0" prefWidth="105.0" text="Report">
+                                    <TextField fx:id="t2year1" layoutX="319.0" layoutY="75.0" prefHeight="32.0" prefWidth="76.0" text="1945" />
+                                    <TextField fx:id="t2year0" layoutX="203.0" layoutY="75.0" prefHeight="32.0" prefWidth="75.0" text="1941" />
+                                    <Label layoutX="288.0" layoutY="80.0" prefHeight="22.0" prefWidth="31.0" text="to" />
+                                    <Button layoutX="99.0" layoutY="132.0" mnemonicParsing="false" onAction="#doT2Report" prefHeight="9.0" prefWidth="105.0" text="Report">
                                        <font>
                                           <Font size="12.0" />
                                        </font>
                                     </Button>
                                  </children>
                               </AnchorPane>
-                              <ImageView fitHeight="167.0" fitWidth="677.0" layoutX="42.0" layoutY="37.0">
-                                 <image>
-                                    <Image url="@images/t2.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </AnchorPane>
                   </content>
                 </Tab>
-                  <Tab fx:id="tabReport3" text="Trend">
+                  <Tab fx:id="tabReport3" text="Reporting 3">
                     <content>
                         <AnchorPane>
                            <children>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="318.0" prefWidth="719.0">
                                  <children>
-                                    <ImageView fitHeight="177.0" fitWidth="651.0" layoutX="46.0" layoutY="35.0">
-                                       <image>
-                                          <Image url="@images/t3.png" />
-                                       </image>
-                                    </ImageView>
+                                    <RadioButton fx:id="t3genderF" layoutX="350.0" layoutY="150.0" mnemonicParsing="false" text="Female">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="T111" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="t3genderM" layoutX="289.0" layoutY="150.0" mnemonicParsing="false" selected="true" text="Male" toggleGroup="$T111" />
+                                    <Label layoutX="138.0" layoutY="150.0" text="Gender of Interest: " />
+                                    <Label layoutX="138.0" layoutY="184.0" text="Period (1880 - 2019): " />
+                                    <TextField fx:id="t3year1" layoutX="434.0" layoutY="178.0" prefHeight="32.0" prefWidth="82.0" text="1945" />
+                                    <TextField fx:id="t3year0" layoutX="301.0" layoutY="178.0" prefHeight="32.0" prefWidth="83.0" text="1941" />
+                                    <Label layoutX="402.0" layoutY="184.0" text="to" />
+                                    <Button layoutX="293.0" layoutY="233.0" mnemonicParsing="false" onAction="#doT3Report" prefHeight="34.0" prefWidth="83.0" text="Report" />
                                  </children>
                               </AnchorPane>
-                              <RadioButton fx:id="t3genderF" layoutX="375.0" layoutY="224.0" mnemonicParsing="false" text="Female">
-                                 <toggleGroup>
-                                    <ToggleGroup fx:id="T111" />
-                                 </toggleGroup>
-                              </RadioButton>
-                              <RadioButton fx:id="t3genderM" layoutX="310.0" layoutY="224.0" mnemonicParsing="false" selected="true" text="Male" toggleGroup="$T111" />
-                              <Label layoutX="165.0" layoutY="224.0" text="Gender of Interest: " />
-                              <Label layoutX="165.0" layoutY="258.0" text="Period (1880 - 2019): " />
-                              <TextField fx:id="t3year1" layoutX="461.0" layoutY="252.0" prefHeight="32.0" prefWidth="82.0" text="1945" />
-                              <TextField fx:id="t3year0" layoutX="328.0" layoutY="252.0" prefHeight="32.0" prefWidth="83.0" text="1941" />
-                              <Label layoutX="429.0" layoutY="258.0" text="to" />
-                              <Button layoutX="303.0" layoutY="301.0" mnemonicParsing="false" onAction="#doT3Report" prefHeight="34.0" prefWidth="83.0" text="Report" />
                            </children>
                         </AnchorPane>
                     </content>
                   </Tab>
-                  <Tab fx:id="tabApp1" text="App1">
+                  <Tab fx:id="tabApp1" text="Application1">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="412.0" prefWidth="719.0">
                            <children>
-                              <ImageView fitHeight="61.0" fitWidth="496.0" layoutX="114.0" layoutY="40.0">
-                                 <image>
-                                    <Image url="@images/app1.png" />
-                                 </image>
-                              </ImageView>
                               <ImageView fitHeight="218.0" fitWidth="332.0" layoutX="405.0" layoutY="136.0">
                                  <image>
                                     <Image url="@images/baby2.png" />
@@ -177,138 +162,114 @@
                               <TextField fx:id="t4vintageYear" layoutX="239.0" layoutY="218.0" prefHeight="27.0" prefWidth="97.0" text="2019" />
                               <Button layoutX="363.0" layoutY="215.0" mnemonicParsing="false" onAction="#doT4Recommend" prefHeight="34.0" prefWidth="162.0" text="Recommendation" />
                               <TextArea fx:id="a1output" editable="false" layoutX="85.0" layoutY="291.0" prefHeight="37.0" prefWidth="554.0" text="|" />
+                              <ImageView fitHeight="143.0" fitWidth="479.0" layoutX="137.0" layoutY="-11.0">
+                                 <image>
+                                    <Image url="@images/app1.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
                     </content>
                   </Tab>
-                  <Tab fx:id="tabApp2" text="App2">
+                  <Tab fx:id="tabApp2" text="Application 2">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <RadioButton fx:id="t5genderM" layoutX="498.0" layoutY="169.0" mnemonicParsing="false" text="Male">
+                              <RadioButton fx:id="t5genderM" layoutX="524.0" layoutY="67.0" mnemonicParsing="false" text="Male">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="A21" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton fx:id="t5genderF" layoutX="406.0" layoutY="169.0" mnemonicParsing="false" selected="true" text="Female" toggleGroup="$A21" />
-                              <RadioButton fx:id="t5Younge" layoutX="406.0" layoutY="226.0" mnemonicParsing="false" text="Younger">
+                              <RadioButton fx:id="t5genderF" layoutX="441.0" layoutY="67.0" mnemonicParsing="false" selected="true" text="Female" toggleGroup="$A21" />
+                              <RadioButton fx:id="t5Younge" layoutX="486.0" layoutY="179.0" mnemonicParsing="false" text="Younger">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="A22" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton fx:id="t5Old" layoutX="505.0" layoutY="226.0" mnemonicParsing="false" selected="true" text="Older" toggleGroup="$A22" />
-                              <TextField fx:id="t5YOB" layoutX="186.0" layoutY="218.0" prefHeight="32.0" prefWidth="101.0" text="2000" />
-                              <TextField fx:id="t5Name" layoutX="185.0" layoutY="162.0" prefHeight="32.0" prefWidth="102.0" text="Wendy" />
-                              <Label layoutX="121.0" layoutY="168.0" text="Name:" />
-                              <Label layoutX="124.0" layoutY="224.0" text="YOB:" />
-                              <Label layoutX="310.0" layoutY="168.0" text="Gender:" />
-                              <Label layoutX="310.0" layoutY="224.0" text="Preference:" />
-                              <TextArea fx:id="a2output" layoutX="165.0" layoutY="314.0" prefHeight="43.0" prefWidth="383.0" />
-                              <Button layoutX="302.0" layoutY="267.0" mnemonicParsing="false" onAction="#doT5Recommend" text="Recommend" />
-                              <ImageView fitHeight="126.0" fitWidth="242.0" layoutX="14.0" layoutY="21.0">
-                                 <image>
-                                    <Image url="@images/lover.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="65.0" fitWidth="445.0" layoutX="248.0" layoutY="62.0">
-                                 <image>
-                                    <Image url="@images/app2.png" />
-                                 </image>
-                              </ImageView>
+                              <RadioButton fx:id="t5Old" layoutX="568.0" layoutY="179.0" mnemonicParsing="false" selected="true" text="Older" toggleGroup="$A22" />
+                              <TextField fx:id="t5YOB" layoutX="200.0" layoutY="107.0" prefHeight="32.0" prefWidth="101.0" text="2000" />
+                              <TextField fx:id="t5Name" layoutX="199.0" layoutY="60.0" prefHeight="32.0" prefWidth="102.0" text="Wendy" />
+                              <Label layoutX="135.0" layoutY="66.0" text="Name:" />
+                              <Label layoutX="138.0" layoutY="113.0" text="YOB:" />
+                              <Label layoutX="345.0" layoutY="66.0" text="Gender:" />
+                              <Label layoutX="390.0" layoutY="177.0" text="Preference:" />
+                              <TextArea fx:id="a2output" layoutX="103.0" layoutY="286.0" prefHeight="86.0" prefWidth="515.0" />
+                              <Button layoutX="412.0" layoutY="239.0" mnemonicParsing="false" onAction="#doT5Recommend" text="Recommendation" />
+                              <RadioButton fx:id="t5genderM1" layoutX="318.0" layoutY="178.0" mnemonicParsing="false" text="Male">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="A23" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="t5genderF1" layoutX="239.0" layoutY="178.0" mnemonicParsing="false" selected="true" text="Female" toggleGroup="$A23" />
+                              <Label layoutX="130.0" layoutY="177.0" text="GenderMate:" />
                            </children>
                         </AnchorPane>
                     </content>
                   </Tab>
-                  <Tab fx:id="tabApp3" text="App3">
+                  <Tab fx:id="tabApp3" text="Application 3">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="394.0" prefWidth="736.0">
                            <children>
-                              <Label layoutX="357.0" layoutY="165.0" text="MateGender:" />
-                              <RadioButton fx:id="t6male" layoutX="438.0" layoutY="123.0" mnemonicParsing="false" selected="true" text="Male">
+                              <Label layoutX="384.0" layoutY="113.0" text="MateGender:" />
+                              <RadioButton fx:id="t6male" layoutX="465.0" layoutY="71.0" mnemonicParsing="false" selected="true" text="Male">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="A31" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton fx:id="t6female" layoutX="494.0" layoutY="123.0" mnemonicParsing="false" text="Female" toggleGroup="$A31" />
-                              <RadioButton fx:id="t6Young" layoutX="464.0" layoutY="210.0" mnemonicParsing="false" text="Younger">
+                              <RadioButton fx:id="t6female" layoutX="521.0" layoutY="71.0" mnemonicParsing="false" text="Female" toggleGroup="$A31" />
+                              <RadioButton fx:id="t6Young" layoutX="491.0" layoutY="158.0" mnemonicParsing="false" text="Younger">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="A33" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton fx:id="t6Old" layoutX="553.0" layoutY="210.0" mnemonicParsing="false" selected="true" text="Older" toggleGroup="$A33" />
-                              <TextField fx:id="a3name" layoutX="225.0" layoutY="116.0" prefHeight="32.0" prefWidth="101.0" text="John" />
-                              <TextField fx:id="a3yob" layoutX="224.0" layoutY="159.0" prefHeight="32.0" prefWidth="102.0" text="1998" />
-                              <Label layoutX="150.0" layoutY="122.0" text="Name:" />
-                              <Label layoutX="155.0" layoutY="165.0" text="YOB:" />
-                              <Label layoutX="362.0" layoutY="122.0" text="Gender:" />
-                              <Label layoutX="362.0" layoutY="209.0" text="Preference:" />
-                              <TextArea fx:id="A3output" layoutX="165.0" layoutY="304.0" prefHeight="44.0" prefWidth="420.0" />
-                              <Button layoutX="295.0" layoutY="253.0" mnemonicParsing="false" onAction="#doT6Recommend" prefHeight="34.0" prefWidth="135.0" text="Let's see!" />
-                              <Label layoutX="123.0" layoutY="209.0" text="MateName:" />
-                              <TextField fx:id="a3matename" layoutX="224.0" layoutY="203.0" prefHeight="32.0" prefWidth="102.0" text="Mary" />
-                              <RadioButton fx:id="t6mateM" layoutX="464.0" layoutY="166.0" mnemonicParsing="false" text="Male">
+                              <RadioButton fx:id="t6Old" layoutX="580.0" layoutY="158.0" mnemonicParsing="false" selected="true" text="Older" toggleGroup="$A33" />
+                              <TextField fx:id="a3name" layoutX="204.0" layoutY="64.0" prefHeight="32.0" prefWidth="101.0" text="John" />
+                              <TextField fx:id="a3yob" layoutX="203.0" layoutY="107.0" prefHeight="32.0" prefWidth="102.0" text="1998" />
+                              <Label layoutX="129.0" layoutY="70.0" text="Name:" />
+                              <Label layoutX="134.0" layoutY="113.0" text="YOB:" />
+                              <Label layoutX="389.0" layoutY="70.0" text="Gender:" />
+                              <Label layoutX="389.0" layoutY="157.0" text="Preference:" />
+                              <TextArea fx:id="A3output" layoutX="108.0" layoutY="277.0" prefHeight="86.0" prefWidth="515.0" />
+                              <Button layoutX="399.0" layoutY="232.0" mnemonicParsing="false" onAction="#doT6Recommend" text="Recommendation" />
+                              <Label layoutX="102.0" layoutY="157.0" text="MateName:" />
+                              <TextField fx:id="a3matename" layoutX="203.0" layoutY="151.0" prefHeight="32.0" prefWidth="102.0" text="Mary" />
+                              <RadioButton fx:id="t6mateM" layoutX="491.0" layoutY="114.0" mnemonicParsing="false" text="Male">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="A32" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton fx:id="t6mateF" layoutX="528.0" layoutY="166.0" mnemonicParsing="false" selected="true" text="Female" toggleGroup="$A32" />
-                              <ImageView fitHeight="74.0" fitWidth="480.0" layoutX="135.0" layoutY="30.0">
-                                 <image>
-                                    <Image url="@images/app3.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="241.0" fitWidth="246.0" layoutX="-31.0" layoutY="173.0">
-                                 <image>
-                                    <Image url="@images/a31.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="274.0" fitWidth="278.0" layoutX="592.0" layoutY="161.0">
-                                 <image>
-                                    <Image url="@images/a32.png" />
-                                 </image>
-                              </ImageView>
+                              <RadioButton fx:id="t6mateF" layoutX="555.0" layoutY="114.0" mnemonicParsing="false" selected="true" text="Female" toggleGroup="$A32" />
                            </children>
                         </AnchorPane>
                     </content>
                   </Tab>
-                  <Tab text="App4">
+                  <Tab text="Application 4">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="394.0" prefWidth="736.0">
                            <children>
-                              <Label layoutX="221.0" layoutY="132.0" text="Name:" />
-                              <TextField fx:id="t7name" layoutX="289.0" layoutY="126.0" prefHeight="32.0" prefWidth="101.0" text="John" />
-                              <RadioButton fx:id="t7male" layoutX="289.0" layoutY="171.0" mnemonicParsing="false" selected="true" text="Male">
+                              <Label layoutX="190.0" layoutY="73.0" text="Name:" />
+                              <TextField fx:id="t7name" layoutX="258.0" layoutY="67.0" prefHeight="32.0" prefWidth="101.0" text="John" />
+                              <RadioButton fx:id="t7male" layoutX="262.0" layoutY="128.0" mnemonicParsing="false" selected="true" text="Male">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="A4" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton fx:id="t7female" layoutX="355.0" layoutY="171.0" mnemonicParsing="false" text="Female" toggleGroup="$A4" />
-                              <Label layoutX="212.0" layoutY="169.0" text="Gender:" />
-                              <Label layoutX="201.0" layoutY="210.0" text="Popularity:" />
-                              <RadioButton fx:id="t7pop0" layoutX="289.0" layoutY="212.0" mnemonicParsing="false" selected="true" text="High">
+                              <RadioButton fx:id="t7female" layoutX="328.0" layoutY="128.0" mnemonicParsing="false" text="Female" toggleGroup="$A4" />
+                              <Label layoutX="185.0" layoutY="126.0" text="Gender:" />
+                              <Label layoutX="174.0" layoutY="167.0" text="Popularity:" />
+                              <RadioButton fx:id="t7pop0" layoutX="262.0" layoutY="169.0" mnemonicParsing="false" selected="true" text="High">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="A41" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton fx:id="t7pop1" layoutX="355.0" layoutY="212.0" mnemonicParsing="false" text="Medium" toggleGroup="$A41" />
+                              <RadioButton fx:id="t7pop1" layoutX="328.0" layoutY="169.0" mnemonicParsing="false" text="Medium" toggleGroup="$A41" />
 <!--                                  <toggleGroup>
                                     <ToggleGroup fx:id="A41" />
                                  </toggleGroup>
                               </RadioButton>--> 
-                              <RadioButton fx:id="t7pop2" layoutX="440.0" layoutY="212.0" mnemonicParsing="false" text="Low" toggleGroup="$A41" />
-                              <TextArea fx:id="T7output" layoutX="528.0" layoutY="68.0" prefHeight="285.0" prefWidth="163.0" />
-                              <Button layoutX="266.0" layoutY="258.0" mnemonicParsing="false" onAction="#doT7Recommend" text="Recommend" />
-                              <ImageView fitHeight="70.0" fitWidth="397.0" layoutX="101.0" layoutY="44.0">
-                                 <image>
-                                    <Image url="@images/title_4.png" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="171.0" layoutY="342.0" prefHeight="20.0" prefWidth="336.0" text="Enter the name you like and get more lovely ones!" />
-                              <ImageView fitHeight="247.0" fitWidth="192.0" layoutX="5.0" layoutY="169.0">
-                                 <image>
-                                    <Image url="@images/test.png" />
-                                 </image>
-                              </ImageView>
+                              <RadioButton fx:id="t7pop2" layoutX="413.0" layoutY="169.0" mnemonicParsing="false" text="Low" toggleGroup="$A41" />
+                              <TextArea fx:id="T7output" layoutX="527.0" layoutY="47.0" prefHeight="324.0" prefWidth="163.0" />
+                              <Button layoutX="333.0" layoutY="224.0" mnemonicParsing="false" onAction="#doT7Recommend" text="Recommendation" />
                            </children></AnchorPane>
                     </content>
                   </Tab>
