@@ -50,7 +50,7 @@ public class PredicReport {
 	}
 	
 //Task5 Recommendation	
-	public static String recomendName_task5(String Name,  int YOB, String gender, String prefer) {
+	public static String recomendName_task5(String Name,  int YOB, String gender,String genderMate, String prefer) {
 		
 		Random rand = new Random();
 		if(YOB<1880||YOB>2019||YOB<1880||YOB>2019) {
@@ -65,9 +65,7 @@ public class PredicReport {
 			return "information on the year of birth cannot predict older soulmate!";
  		}
 		
-		String soulgender;
-		if(gender=="M") {soulgender = "F";}
-		else {soulgender = "M";}
+		String soulgender = genderMate;
 		
 		int Rank = AnalyzeNames.getRank(YOB,Name,gender);
 		//System.out.println(Rank);

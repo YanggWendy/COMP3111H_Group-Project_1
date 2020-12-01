@@ -272,6 +272,16 @@ public class MainController {
 
      @FXML
      private RadioButton t5Old;
+     
+     @FXML
+     private RadioButton t5genderM1;
+
+     @FXML
+     private ToggleGroup A23;
+
+     @FXML
+     private RadioButton t5genderF1;
+
     
      @FXML
  	 void doT5Recommend() {
@@ -279,7 +289,9 @@ public class MainController {
      	t5genderF.setUserData("F"); 
      	t5Younge.setUserData("Younger");
      	t5Old.setUserData("Older"); 
-    	 
+     	t5genderM1.setUserData("M");
+     	t5genderF1.setUserData("F"); 
+     	
     	String gender = A21.getSelectedToggle().getUserData().toString();
  		String name = t5Name.getText();
  		//check YOB
@@ -292,13 +304,14 @@ public class MainController {
  		else{YOB = Integer.parseInt(t5YOB.getText());}
  		
  		String preference = A22.getSelectedToggle().getUserData().toString();
+ 		String genderMate = A23.getSelectedToggle().getUserData().toString();
  		//System.out.println(YOB);
  		if (name.length() == 0) {
  			a2output.setText("Please enter valid name!");
             return;
         }
  		else{ 
- 			a2output.setText(PredicReport.recomendName_task5(name, YOB, gender, preference));
+ 			a2output.setText(PredicReport.recomendName_task5(name, YOB, gender,genderMate,preference));
  		}
  	} 
      
