@@ -111,37 +111,37 @@ public class AnalyzeNamesTest {
     // Test Task 5
     @Test 
     public void testrecomendName_task5InvalidYOB() {
-    	String string = PredicReport.recomendName_task5("Wendy", 1000, "F", "Younger");
+    	String string = PredicReport.recomendName_task5("Wendy", 1000, "F", "M", "Younger");
     	assertTrue(string.equals("information on the year of birth is out of range!"));
     }
     @Test 
     public void testrecomendName_task5InvalidYounger() {
-    	String string = PredicReport.recomendName_task5("Wendy", 2019, "F", "Younger");
+    	String string = PredicReport.recomendName_task5("Wendy", 2019, "F", "M", "Younger");
     	assertTrue(string.equals("information on the year of birth cannot predict younger soulmate!"));
     }
     @Test 
     public void testrecomendName_task5InvalidOlder() {
-    	String string = PredicReport.recomendName_task5("Wendy", 1880, "F", "Older");
+    	String string = PredicReport.recomendName_task5("Wendy", 1880, "F", "M", "Older");
     	assertTrue(string.equals("information on the year of birth cannot predict older soulmate!"));
     }
     @Test 
     public void testrecomendName_task5YoungerNotFound() {
-    	String string = PredicReport.recomendName_task5("Zyona", 2018, "F", "Younger");
+    	String string = PredicReport.recomendName_task5("Zyona", 2018, "F", "M", "Younger");
     	assertTrue(string.equals("Soulmate Name is Liam!"));
     }
     @Test 
     public void testrecomendName_task5OlderNotFound() {
-    	String string = PredicReport.recomendName_task5("Zyona", 2018, "F", "Older");
+    	String string = PredicReport.recomendName_task5("Zyona", 2018, "F", "M", "Older");
     	assertTrue(string.equals("Soulmate Name is Liam!"));
     }
     @Test 
     public void testrecomendName_task5RankNotFound() {
-    	String string = PredicReport.recomendName_task5("Zhegemingzimeiyou", 2018, "F", "Older");
+    	String string = PredicReport.recomendName_task5("Zhegemingzimeiyou", 2018, "F", "M", "Older");
     	assertTrue(string.contains("Soulmate Name is") && string.length() > 15);
     }
     @Test
     public void testrecomendName_task5() {
-    	String string = PredicReport.recomendName_task5("Wendy", 2000, "F", "Older");
+    	String string = PredicReport.recomendName_task5("Wendy", 2000, "F", "M", "Older");
     	assertTrue(string.equals("Soulmate Name is Morgan!"));
     }
     
