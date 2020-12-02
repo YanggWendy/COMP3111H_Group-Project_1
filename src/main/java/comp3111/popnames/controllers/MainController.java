@@ -18,6 +18,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The MainController Program implements the methods in ui.fxml. It includes
+ * the report or recommend functions in tasks 1-6 as well as the pop up window 
+ * that may include bar or line chart.
+ * @author YCY Group
+ * @since  2020-10-30
+ */
+
 public class MainController {
 
     @FXML
@@ -77,6 +85,11 @@ public class MainController {
     @FXML
     private TextArea textAreaConsole;
 
+    /**
+     * This method pop up warning when users input some invalid information 
+     * @param nothing
+     * @return nothing
+     */
     void popupWarning() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Year out of range");
@@ -91,6 +104,14 @@ public class MainController {
     @FXML private RadioButton t1genderF;
     @FXML private TextField t1year2;
     @FXML private TextField t1year1;
+    
+    /**
+     * This method implements the Task1 and will be executed after users click the report button. 
+     * It enable an pop up window for a visual table.
+     * @param nothing
+     * @return nothing
+     * @see IOException
+     */
     @FXML
     void doT1Report() {
     	t1genderM.setUserData("M");
@@ -121,12 +142,20 @@ public class MainController {
     
     
     
-    // task2
     @FXML private TextField t2name;
     @FXML private TextField t2year0;
     @FXML private TextField t2year1;
     @FXML private RadioButton t2genderM;
     @FXML private RadioButton t2genderF;
+    
+    /**
+     * This method implements the Task2 and will be executed after users click the report button in task2. 
+     * It enable an pop up window for a visual table and charts.
+     * @param nothing
+     * @return nothing
+     * @see IOException
+     */
+    // task2
     @FXML
     void doT2Report() {
     	t2genderM.setUserData("M");
@@ -170,6 +199,15 @@ public class MainController {
     @FXML
     private RadioButton t3genderF;
     
+    
+    /**
+     * This method implements the Task3 and will be executed after users click the report button in task3. 
+     * It enable an pop up window for a visual table and charts.
+     * @param nothing
+     * @return nothing
+     * @see IOException
+     */
+    // task2
     @FXML
     void doT3Report() {
     	t3genderM.setUserData("M");
@@ -211,6 +249,12 @@ public class MainController {
     @FXML
     private TextArea a1output;
      
+    /**
+     * This method implements the Task4 and will be executed after users click the recommend button in task4. 
+     * It predicts the baby's names and shows the output in specific TextArea.
+     * @param nothing
+     * @return nothing
+     */
      @FXML
  	 void doT4Recommend() {
  		String dadName = t4dadName.getText();
@@ -282,7 +326,12 @@ public class MainController {
      @FXML
      private RadioButton t5genderF1;
 
-    
+     /**
+      * This method implements the Task5 and will be executed after users click the recommend button in task5. 
+      * It predicts the soulmate names and shows the output in specific TextArea.
+      * @param nothing
+      * @return nothing
+      */
      @FXML
  	 void doT5Recommend() {
     	t5genderM.setUserData("M");
@@ -355,6 +404,12 @@ public class MainController {
      @FXML
      private RadioButton t6mateF;
      
+     /**
+      * This method implements the Task6 and will be executed after users click the recommend button in task6. 
+      * It predicts on Scores for Compatible Pairs and shows the output in specific TextArea.
+      * @param nothing
+      * @return nothing
+      */
      @FXML
  	 void doT6Recommend() {
     	t6male.setUserData("M");
@@ -414,6 +469,13 @@ public class MainController {
      @FXML
      private TextArea T7output;
      
+     
+     /**
+      * This method implements the Task7 and will be executed after users click the recommend button in task7. 
+      * It recommends similar name and shows the output in specific TextArea.
+      * @param nothing
+      * @return nothing
+      */
      @FXML
      void doT7Recommend() {
     	t7male.setUserData("M");
@@ -438,6 +500,13 @@ public class MainController {
      @FXML
      private Button button;
      // do welcome interface
+     
+     /**
+      * This method implements the welcome window and will be executed after users click the start button in welcome window. 
+      * It welcomes users and guides them to do the name analysis task.
+      * @param nothing
+      * @return nothing
+      */
      @FXML
      void doWelcome() throws IOException {
     	Stage primaryStage = (Stage)button.getScene().getWindow();

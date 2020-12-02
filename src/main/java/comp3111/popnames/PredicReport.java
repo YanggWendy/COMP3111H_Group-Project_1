@@ -49,53 +49,51 @@ public class PredicReport {
 		return Recommendation;
 	}
 	
-//Task5 Recommendation	
-	public static String recomendName_task5(String Name,  int YOB, String gender, String prefer) {
-		
-		Random rand = new Random();
-		if(YOB<1880||YOB>2019||YOB<1880||YOB>2019) {
-			return "information on the year of birth is out of range!";
- 		}
-		
-		if(YOB==2019 && prefer=="Younger") {
-			return "information on the year of birth cannot predict younger soulmate!";
- 		}
-		
-		if(YOB==1880 && prefer=="Older") {
-			return "information on the year of birth cannot predict older soulmate!";
- 		}
-		
-		String soulgender;
-		if(gender=="M") {soulgender = "F";}
-		else {soulgender = "M";}
-		
-		int Rank = AnalyzeNames.getRank(YOB,Name,gender);
-		//System.out.println(Rank);
-		if(Rank == -1)
-		{
-			int uppernum = AnalyzeNames.get_total_Rank(YOB,gender);
-			Rank = rand.nextInt(uppernum);;
-		}
-		String soulName;
-		
-		if(prefer=="Younger") {		
-			soulName = AnalyzeNames.getName(YOB+1,Rank,soulgender);
-			//System.out.println(soulName);
-			if(soulName=="information on the name at the specified rank is not available") {
-				soulName = AnalyzeNames.getName(YOB+1,1,soulgender);
-			}
-		}else {			
-			soulName = AnalyzeNames.getName(YOB-1,Rank,soulgender);
-			//System.out.println(soulName);
-			if(soulName=="information on the name at the specified rank is not available") {
-				soulName = AnalyzeNames.getName(YOB-1,1,soulgender);}
-		}
+//Task5 Recommendation		
+public static String recomendName_task5(String Name,  int YOB, String gender,String genderMate, String prefer) {
 	
-		String Recommendation = "Soulmate Name is ";
-		Recommendation += soulName;
-		Recommendation += "!";
-		return Recommendation;
+	Random rand = new Random();
+	if(YOB<1880||YOB>2019||YOB<1880||YOB>2019) {
+		return "information on the year of birth is out of range!";
 	}
+	
+	if(YOB==2019 && prefer=="Younger") {
+		return "information on the year of birth cannot predict younger soulmate!";
+	}
+	
+	if(YOB==1880 && prefer=="Older") {
+		return "information on the year of birth cannot predict older soulmate!";
+	}
+	
+	String soulgender = genderMate;
+	
+	int Rank = AnalyzeNames.getRank(YOB,Name,gender);
+	//System.out.println(Rank);
+	if(Rank == -1)
+	{
+		int uppernum = AnalyzeNames.get_total_Rank(YOB,gender);
+		Rank = rand.nextInt(uppernum);;
+	}
+	String soulName;
+	
+	if(prefer=="Younger") {		
+		soulName = AnalyzeNames.getName(YOB+1,Rank,soulgender);
+		//System.out.println(soulName);
+		if(soulName=="information on the name at the specified rank is not available") {
+			soulName = AnalyzeNames.getName(YOB+1,1,soulgender);
+		}
+	}else {			
+		soulName = AnalyzeNames.getName(YOB-1,Rank,soulgender);
+		//System.out.println(soulName);
+		if(soulName=="information on the name at the specified rank is not available") {
+			soulName = AnalyzeNames.getName(YOB-1,1,soulgender);}
+	}
+
+	String Recommendation = "Soulmate Name is ";
+	Recommendation += soulName;
+	Recommendation += "!";
+	return Recommendation;
+}
 
 	
 	
