@@ -353,6 +353,86 @@ public class AnalyzeNames {
 		arr[2][3] = "+"+ maxNameRise;
 		return arr;
 	}
- 
 
+	/**
+	 * Report the largest difference in a range rather than consecutive two years.
+	 * @param gender
+	 * @param year0
+	 * @param year1
+	 * @return
+	 */
+	public static String[][] reportTrend2(String gender, int year0, int year1) {
+		//change the value if year0 > year1
+		if (year0 > year1) {
+			int temp = year0;
+			year0 = year1;
+			year1 = temp;
+		}
+
+		Map<String, List<Pair<Integer, Integer>>> map = new HashMap<>();
+
+		for (int year = year0; year <= year1; year++) {
+			int rank = 0;
+			for (CSVRecord rec : getFileParser(year)) {
+				if (rec.get(1).equals(gender)) {
+					rank++;
+					String name = rec.get(0);
+					Pair<Integer, Integer> pair = new Pair<Integer, Integer>(year, rank);
+					if (map.containsKey(name)) {
+						map.get(name).add(pair);
+					} else {
+						List<Pair<Integer, Integer>> list = new ArrayList<>();
+						list.add(pair);
+						map.put(name, list);
+					}
+				}
+			}
+		}
+
+		String nameRise = "", nameFall = "";
+		Pair<Integer, Integer> rankRise = new Pair<>(0, 0);
+		Pair<Integer, Integer> yearRise = new Pair<>(0, 0);
+		Pair<Integer, Integer> rankFall = new Pair<>(0, 0);
+		Pair<Integer, Integer> yearFall = new Pair<>(0, 0);
+		int maxNameRise = 0, maxNameFall = 0;
+		for (String name : map.keySet()) {
+			List<Pair<Integer, Integer>> list = map.get(name);
+			Pair<Integer, Integer> tmpMax = list.get(0), tmpMin = list.get(0);
+			for (Pair<Integer, Integer> pair : list) {
+				int rank = pair.getValue();
+				int year = pair.getKey();
+				if (rank - tmpMin.getValue() > maxNameRise) {
+					nameRise = name;
+					rankRise = new Pair<Integer, Integer>(tmpMin.getValue(), rank);
+					yearRise = new Pair<Integer, Integer>(tmpMin.getKey(), year);
+					maxNameRise = rank - tmpMin.getValue();
+				}
+				if (tmpMax.getValue() - rank > maxNameFall) {
+					nameFall = name;
+					rankFall = new Pair<Integer, Integer>(tmpMax.getValue(), rank);
+					yearFall = new Pair<Integer, Integer>(tmpMax.getKey(), year);
+					maxNameFall = tmpMax.getValue() - rank;
+				}
+				if (rank > tmpMax.getValue()) tmpMax = pair;
+				if (rank < tmpMin.getValue()) tmpMin = pair;
+			}
+		}
+
+		String[][] arr = new String[3][4];
+		arr[0][0] = "Name";
+		arr[0][1] = "Lowest Rank";
+		arr[0][2] = "Highest Rank";
+		arr[0][3] = "Trend";
+
+		arr[1][0] = nameFall;
+		arr[1][1] = rankFall.getKey() + " in " + yearFall.getKey();
+		arr[1][2] = rankFall.getValue() + " in " + yearFall.getValue();
+		arr[1][3] = String.valueOf(-maxNameFall);
+
+		arr[2][0] = nameRise;
+		arr[2][1] = rankRise.getKey() + " in " + yearRise.getKey();
+		arr[2][2] = rankRise.getValue() + " in " + yearRise.getValue();
+		arr[2][3] = "+" + maxNameRise;
+		return arr;
+	}
 }
