@@ -326,15 +326,6 @@ public class MainController {
      @FXML
      private RadioButton t5genderF1;
 
-    
-     @FXML
-     private RadioButton t5genderM1;
-
-     @FXML
-     private ToggleGroup A23;
-
-     @FXML
-     private RadioButton t5genderF1;
 
      /**
       * This method implements the Task5 and will be executed after users click the recommend button in task5. 
