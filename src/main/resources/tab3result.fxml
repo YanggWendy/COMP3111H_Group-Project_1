@@ -15,7 +15,7 @@
             </image>
         </ImageView>
       <TableView fx:id="t3table2" layoutX="33.0" layoutY="283.0" prefHeight="118.0" prefWidth="633.0" />
-      <Label layoutX="33.0" layoutY="91.0" prefHeight="20.0" prefWidth="334.0" text="Top rise/ fall in consecutive two years" />
+      <Label layoutX="33.0" layoutY="91.0" prefHeight="20.0" prefWidth="334.0" text="Top rise/ fall in consecutive years" />
       <Label layoutX="33.0" layoutY="254.0" prefHeight="20.0" prefWidth="334.0" text="Top rise/ fall in year range" />
     </children>
 </Pane>
