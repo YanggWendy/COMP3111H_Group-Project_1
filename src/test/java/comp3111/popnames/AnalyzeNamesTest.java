@@ -2,11 +2,13 @@ package comp3111.popnames;
 
 import org.junit.Test;
 
+import javafx.collections.ObservableList;
 import javafx.util.Pair;
 
 import static org.junit.Assert.*;
 
 import java.util.List;
+import java.util.Observable;
 
 public class AnalyzeNamesTest {
 	
@@ -79,6 +81,16 @@ public class AnalyzeNamesTest {
     			&& arr[3][1].equals("Fe") && arr[3][2].equals("Fc") && arr[3][3].equals("Fb"));
     }
     
+    // Test Task 2
+    @Test
+    public void testReportPopularity() {
+    	ObservableList<Year> list = AnalyzeNames.reportPopularity("Ma", "M", 1000, 1003);
+    	assertTrue(list.get(0).getYear() == 1000 && list.get(0).getCount() == 40
+    			&& list.get(0).getRank() == 1
+    			&& list.get(1).getYear() == 1001 && list.get(1).getCount() == 4
+    			&& list.get(1).getRank() == 5);
+    }
+    
     // Test Task 3.1
     @Test
     public void testReportTrend() {
@@ -96,6 +108,8 @@ public class AnalyzeNamesTest {
     			&& strings[2][0].equals("Ma") && strings[2][1].contains("1 in 1000")
     			&& strings[2][2].contains("5 in 1001") && strings[2][3].equals("+4"));
     }
+    
+    // Test Task 3.2
     @Test
     public void testReportTrend2() {
     	String[][] strings = AnalyzeNames.reportTrend2("M", 1000, 1003);
