@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="687.0" stylesheets="@dark-theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <TableView fx:id="t3table" layoutX="33.0" layoutY="122.0" prefHeight="118.0" prefWidth="633.0" />
+        <ImageView fitHeight="196.0" fitWidth="404.0" layoutX="-111.0" layoutY="-1.0">
+            <image>
+                <Image url="@images/t2title.png" />
+            </image>
+        </ImageView>
+      <TableView fx:id="t3table2" layoutX="33.0" layoutY="283.0" prefHeight="118.0" prefWidth="633.0" />
+      <Label layoutX="33.0" layoutY="91.0" prefHeight="20.0" prefWidth="334.0" text="Top rise/ fall in consecutive years" />
+      <Label layoutX="33.0" layoutY="254.0" prefHeight="20.0" prefWidth="334.0" text="Top rise/ fall in year range" />
+    </children>
+</Pane>

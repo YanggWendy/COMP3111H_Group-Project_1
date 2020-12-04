@@ -144,15 +144,15 @@ public class AnalyzeNames {
 	    else
 	    	return "information on the name at the specified rank is not available";
 	}
-	
-	/* Task 1: report the certain gender Top N name in a certain time range
-	 * Return in json format. (For potentially future visualization purpose)
-	 * e.g.
-	 * {"Top N":"12", "gender":"male", "year begin":"2000", "year end":"2001", "data":[
-	 * 	{"year":"2000", "Top Name":["Top1":Jack, "Top2":Mark,..."Top12":Jimmy]},
-	 * 	{"year":"2001", "Top Name":["Top1":Andy, "Top2":Mark,..."Top12":Jimmy]}]
-	 * }
-	 * */
+
+	/**
+	 * Task 1: report the certain gender Top N name in a certain time range
+	 * @param top_N Top N names to show
+	 * @param gender gender
+	 * @param year0 year range start
+	 * @param year1
+	 * @return the table in array format
+	 */
 	public static String[][] reportTopname(int top_N, String gender, int year0, int year1) {
 		//change the value if year0 > year1
 		if(year0>year1)
@@ -183,12 +183,17 @@ public class AnalyzeNames {
 		}
 
 		return arr;
-	}	
-	
+	}
 
-	/* Task 2: report the popularity of a given name in a certain time range
-	 * Return as an array list
-	*/
+	/**
+	 * Task 2: report the popularity of a given name in a certain time range
+	 * @param name
+	 * @param gender
+	 * @param year0
+	 * @param year1
+	 * @return ObservaleList<Year>
+	 */
+
 	public static ObservableList<Year> reportPopularity(String name, String gender, int year0, int year1) {
 		ObservableList<Year> years = FXCollections.observableArrayList();
 		
@@ -261,19 +266,15 @@ public class AnalyzeNames {
 		
 		
 	}
-	
-	/* Task 3: report the names that have shown the largest rise/fall in popularity over a given period
-	 * Return in json format. (For potentially future visualization purpose)
-	 * e.g.
-	 * {"rank_fall2":3741,"ranks_up":3303,"year_fall1":1941,"year_fall2":1944,
-	 * "rank_rise2":513,"year_rise1":1941,"year_rise2":1942,"rank_fall1":1567,
-	 * "name_rise":"Macarthur","rank_rise1":3816,"name_fall":"Marlene","ranks_down":2174}
-	 * */
-	public static String reportTrend(String gender, int year0, int year1) {
-//		//check whether input years are within required year range
-//		if(year0<1880||year1<1880||year0>2019||year1>2019)
-//			return "information on the trend in popularity at the specified year range is not available";
-		
+
+	/**
+	 * Task 3: report the names that have shown the largest rise/fall in popularity over a given period
+	 * @param gender
+	 * @param year0
+	 * @param year1
+	 * @return table as a 2d array
+	 */
+	public static String[][] reportTrend(String gender, int year0, int year1) {
 		//change the value if year0 > year1
 		if(year0 > year1) {
 			int temp = year0;
@@ -301,6 +302,13 @@ public class AnalyzeNames {
 				}
 			}
 		}
+
+		String[][] arr = new String[3][4];
+		arr[0][0] = "Name";
+		arr[0][1] = "Lowest Rank";
+		arr[0][2] = "Highest Rank";
+		arr[0][3] = "Trend";
+
 		
 		String nameRise = "", nameFall = "";
 		Pair<Integer, Integer> rankRise = new Pair<>(0, 0);
@@ -333,34 +341,98 @@ public class AnalyzeNames {
 				if(rank < tmpMin.getValue()) tmpMin = pair;
 			}
 		}
-		JSONObject mainObj = new JSONObject();
-		mainObj.put("name_rise", nameFall);
-		mainObj.put("rank_rise1", rankFall.getKey());
-		mainObj.put("rank_rise2", rankFall.getValue());
-		mainObj.put("year_rise1", yearFall.getKey());
-		mainObj.put("year_rise2", yearFall.getValue());
-		mainObj.put("ranks_up", maxNameFall);
-		
-		mainObj.put("name_fall", nameRise);
-		mainObj.put("rank_fall1", rankRise.getKey());
-		mainObj.put("rank_fall2", rankRise.getValue());
-		mainObj.put("year_fall1", yearRise.getKey());
-		mainObj.put("year_fall2", yearRise.getValue());
-		mainObj.put("ranks_down", maxNameRise);
-		
-//		System.out.println(nameRise + " " 
-//							+ yearRise.getKey() + ":"
-//							+ rankRise.getKey() + " "
-//							+ yearRise.getValue() + ":"
-//							+ rankRise.getValue());
-//		System.out.println(nameFall + " " 
-//							+ yearFall.getKey() + ":"
-//							+ rankFall.getKey() + " "
-//							+ yearFall.getValue() + ":"
-//							+ rankFall.getValue());
-		
-		return mainObj.toString();
-	}
- 
 
+		arr[1][0] = nameFall;
+		arr[1][1] = rankFall.getKey() + " in "+ yearFall.getKey();
+		arr[1][2] = rankFall.getValue() + " in "+ yearFall.getValue();
+		arr[1][3] = String.valueOf(-maxNameFall);
+
+		arr[2][0] = nameRise;
+		arr[2][1] = rankRise.getKey() + " in "+ yearRise.getKey();
+		arr[2][2] = rankRise.getValue() + " in "+ yearRise.getValue();
+		arr[2][3] = "+"+ maxNameRise;
+		return arr;
+	}
+
+	/**
+	 * Report the largest difference in a range rather than consecutive two years.
+	 * @param gender
+	 * @param year0
+	 * @param year1
+	 * @return
+	 */
+	public static String[][] reportTrend2(String gender, int year0, int year1) {
+		//change the value if year0 > year1
+		if (year0 > year1) {
+			int temp = year0;
+			year0 = year1;
+			year1 = temp;
+		}
+
+		Map<String, List<Pair<Integer, Integer>>> map = new HashMap<>();
+
+		for (int year = year0; year <= year1; year++) {
+			int rank = 0;
+			for (CSVRecord rec : getFileParser(year)) {
+				if (rec.get(1).equals(gender)) {
+					rank++;
+					String name = rec.get(0);
+					Pair<Integer, Integer> pair = new Pair<Integer, Integer>(year, rank);
+					if (map.containsKey(name)) {
+						map.get(name).add(pair);
+					} else {
+						List<Pair<Integer, Integer>> list = new ArrayList<>();
+						list.add(pair);
+						map.put(name, list);
+					}
+				}
+			}
+		}
+
+		String nameRise = "", nameFall = "";
+		Pair<Integer, Integer> rankRise = new Pair<>(0, 0);
+		Pair<Integer, Integer> yearRise = new Pair<>(0, 0);
+		Pair<Integer, Integer> rankFall = new Pair<>(0, 0);
+		Pair<Integer, Integer> yearFall = new Pair<>(0, 0);
+		int maxNameRise = 0, maxNameFall = 0;
+		for (String name : map.keySet()) {
+			List<Pair<Integer, Integer>> list = map.get(name);
+			Pair<Integer, Integer> tmpMax = list.get(0), tmpMin = list.get(0);
+			for (Pair<Integer, Integer> pair : list) {
+				int rank = pair.getValue();
+				int year = pair.getKey();
+				if (rank - tmpMin.getValue() > maxNameRise) {
+					nameRise = name;
+					rankRise = new Pair<Integer, Integer>(tmpMin.getValue(), rank);
+					yearRise = new Pair<Integer, Integer>(tmpMin.getKey(), year);
+					maxNameRise = rank - tmpMin.getValue();
+				}
+				if (tmpMax.getValue() - rank > maxNameFall) {
+					nameFall = name;
+					rankFall = new Pair<Integer, Integer>(tmpMax.getValue(), rank);
+					yearFall = new Pair<Integer, Integer>(tmpMax.getKey(), year);
+					maxNameFall = tmpMax.getValue() - rank;
+				}
+				if (rank > tmpMax.getValue()) tmpMax = pair;
+				if (rank < tmpMin.getValue()) tmpMin = pair;
+			}
+		}
+
+		String[][] arr = new String[3][4];
+		arr[0][0] = "Name";
+		arr[0][1] = "Lowest Rank";
+		arr[0][2] = "Highest Rank";
+		arr[0][3] = "Trend";
+
+		arr[1][0] = nameFall;
+		arr[1][1] = rankFall.getKey() + " in " + yearFall.getKey();
+		arr[1][2] = rankFall.getValue() + " in " + yearFall.getValue();
+		arr[1][3] = String.valueOf(-maxNameFall);
+
+		arr[2][0] = nameRise;
+		arr[2][1] = rankRise.getKey() + " in " + yearRise.getKey();
+		arr[2][2] = rankRise.getValue() + " in " + yearRise.getValue();
+		arr[2][3] = "+" + maxNameRise;
+		return arr;
+	}
 }
