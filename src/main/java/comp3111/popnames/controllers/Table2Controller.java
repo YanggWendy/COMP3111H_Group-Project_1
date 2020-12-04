@@ -17,6 +17,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * The Table2Controller Program implements the methods in tab2result.fxml. It includes
+ * the pop up report and related function in tasks 2 as well as the visual table and charts that includes .
+ * @author YCY Group
+ * @since  2020-10-30
+ */
 public class Table2Controller implements Initializable {
     //table part
 	@FXML private TableView<Year> t2table;
@@ -52,13 +58,28 @@ public class Table2Controller implements Initializable {
     int year0;
     int year1;
 
+
+	/**
+	 * Table2Controller class constructor that initiates the variables
+	 * @param name
+	 * @param gender
+	 * @param year0
+	 * @param year1
+	 */
     public Table2Controller(String name, String gender, int year0, int year1) {
         this.name = name;
         this.gender = gender;
         this.year0 = year0;
         this.year1 = year1;
     }
-
+    
+    
+    /**
+	 * Table2Controller class initialize
+	 * @param location
+	 * @param resources
+	 * @return void
+	 */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         yearCol.setCellValueFactory(new PropertyValueFactory<Year, Integer>("Year"));

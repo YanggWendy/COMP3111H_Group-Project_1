@@ -15,14 +15,31 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
+
+/**
+ * The Table1Controller Program implements the methods in tab1result.fxml. It includes
+ * the report functions in tasks 1 as well as the visual table that includes .
+ * @author YCY Group
+ * @since  2020-10-30
+ */
 public class Table1Controller implements Initializable {
     @FXML private TableView<String[]> t1table;
     String[][] arr;
 
+    /**
+	 * Table1Controller class constructor that initiates the variables
+	 * @param arr[][]
+	 */
     public Table1Controller(String arr[][]) {
         this.arr = arr;
     }
-
+    
+    /**
+	 * Table1Controller class initialize
+	 * @param location
+	 * @param resources
+	 * @return void
+	 */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<String[]> data = FXCollections.observableArrayList();

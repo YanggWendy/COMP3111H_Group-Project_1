@@ -51,17 +51,17 @@
                                     <children>
                                         <Label layoutX="79.0" layoutY="44.0" />
                                         <Label layoutX="172.0" layoutY="213.0" text="Top N (N&gt;=1): " />
-                                        <TextField fx:id="t1TopN" layoutX="291.0" layoutY="208.0" prefHeight="32.0" prefWidth="54.0" text="10" />
+                                        <TextField fx:id="t1TopN" layoutX="291.0" layoutY="208.0" prefHeight="32.0" prefWidth="54.0" text="5" />
                                         <Label layoutX="377.0" layoutY="214.0" text="Gender: " />
-                                        <RadioButton fx:id="t1genderM" layoutX="436.0" layoutY="215.0" mnemonicParsing="false" selected="true" text="Male">
+                                        <RadioButton fx:id="t1genderM" layoutX="443.0" layoutY="215.0" mnemonicParsing="false" selected="true" text="Male">
                                             <toggleGroup>
                                                 <ToggleGroup fx:id="T1" />
                                             </toggleGroup>
                                         </RadioButton>
                                         <RadioButton fx:id="t1genderF" layoutX="514.0" layoutY="215.0" mnemonicParsing="false" text="Female" toggleGroup="$T1" />
                                         <Label layoutX="174.0" layoutY="261.0" text="Period (1880 - 2019): " />
-                                        <TextField fx:id="t1year2" layoutX="462.0" layoutY="255.0" prefHeight="32.0" prefWidth="71.0" text="1945" />
-                                        <TextField fx:id="t1year1" layoutX="340.0" layoutY="255.0" prefHeight="32.0" prefWidth="80.0" text="1941" />
+                                        <TextField fx:id="t1year2" layoutX="462.0" layoutY="255.0" prefHeight="32.0" prefWidth="71.0" text="1999" />
+                                        <TextField fx:id="t1year1" layoutX="340.0" layoutY="255.0" prefHeight="32.0" prefWidth="80.0" text="1991" />
                                         <Label layoutX="436.0" layoutY="261.0" text="to" />
                                         <Button layoutX="336.0" layoutY="311.0" mnemonicParsing="false" onAction="#doT1Report" text="REPORT" />
                                         <ImageView fitHeight="159.0" fitWidth="668.0" layoutX="31.0" layoutY="32.0">
@@ -135,11 +135,11 @@
                                                 <ToggleGroup fx:id="T111" />
                                             </toggleGroup>
                                         </RadioButton>
-                                        <RadioButton fx:id="t3genderM" layoutX="310.0" layoutY="224.0" mnemonicParsing="false" selected="true" text="Male" toggleGroup="$T111" />
+                                        <RadioButton fx:id="t3genderM" layoutX="315.0" layoutY="224.0" mnemonicParsing="false" selected="true" text="Male" toggleGroup="$T111" />
                                         <Label layoutX="165.0" layoutY="224.0" text="Gender of Interest: " />
                                         <Label layoutX="165.0" layoutY="258.0" text="Period (1880 - 2019): " />
                                         <TextField fx:id="t3year1" layoutX="461.0" layoutY="252.0" prefHeight="32.0" prefWidth="82.0" text="1945" />
-                                        <TextField fx:id="t3year0" layoutX="328.0" layoutY="252.0" prefHeight="32.0" prefWidth="83.0" text="1941" />
+                                        <TextField fx:id="t3year0" layoutX="339.0" layoutY="252.0" prefHeight="32.0" prefWidth="83.0" text="1941" />
                                         <Label layoutX="429.0" layoutY="258.0" text="to" />
                                         <Button layoutX="303.0" layoutY="301.0" mnemonicParsing="false" onAction="#doT3Report" prefHeight="34.0" prefWidth="83.0" text="Report" />
                                     </children>

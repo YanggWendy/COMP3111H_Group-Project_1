@@ -98,6 +98,19 @@ public class MainController {
         alert.showAndWait();
     }
     
+    /**
+     * This method pop up warning when users input some invalid information 
+     * @param nothing
+     * @return nothing
+     */
+    void empty_Warning() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Empty input");
+        alert.setHeaderText(null);
+        alert.setContentText("Please complete the input!");
+        alert.showAndWait();
+    }
+    
     // task1
     @FXML private TextField t1TopN;
     @FXML private RadioButton t1genderM;
@@ -116,8 +129,26 @@ public class MainController {
     void doT1Report() {
     	t1genderM.setUserData("M");
     	t1genderF.setUserData("F");	
-    	int top_n = Integer.parseInt(t1TopN.getText());
+    	String top_n_s = t1TopN.getText();
+    	if(top_n_s.length()==0) 
+    	{
+    		empty_Warning();
+    		return;
+    	}
+    	int top_n = Integer.parseInt(top_n_s);
     	String gender = T1.getSelectedToggle().getUserData().toString();
+    	String year0_s = t1year1.getText();
+    	if(year0_s.length()==0) 
+    	{
+    		empty_Warning();
+    		return;
+    	}
+    	String year1_s = t1year2.getText();
+    	if(year1_s.length()==0) 
+    	{
+    		empty_Warning();
+    		return;
+    	}
     	int year0 = Integer.parseInt(t1year1.getText());
     	int year1 = Integer.parseInt(t1year2.getText());
 
@@ -127,6 +158,7 @@ public class MainController {
                 popupWarning();
                 return;
             }
+            
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/tab1result.fxml"));
             loader.setController(new Table1Controller(AnalyzeNames.reportTopname(top_n, gender, year0, year1)));
@@ -160,8 +192,27 @@ public class MainController {
     void doT2Report() {
     	t2genderM.setUserData("M");
     	t2genderF.setUserData("F");	
+    	String name_s = t2name.getText();
+    	if(name_s.length()==0) 
+    	{
+    		empty_Warning();
+    		return;
+    	}
     	String name = t2name.getText();
     	String  gender = T11.getSelectedToggle().getUserData().toString();
+    	
+    	String year0_s = t2year0.getText();
+    	if(year0_s.length()==0) 
+    	{
+    		empty_Warning();
+    		return;
+    	}
+    	String year1_s = t2year1.getText();
+    	if(year1_s.length()==0) 
+    	{
+    		empty_Warning();
+    		return;
+    	}
     	int year0 = Integer.parseInt(t2year0.getText());
     	int year1 = Integer.parseInt(t2year1.getText());
 
@@ -213,6 +264,19 @@ public class MainController {
     	t3genderM.setUserData("M");
     	t3genderF.setUserData("F");	
     	String  gender = T111.getSelectedToggle().getUserData().toString();
+    	
+    	String year0_s = t3year0.getText();
+    	if(year0_s.length()==0) 
+    	{
+    		empty_Warning();
+    		return;
+    	}
+    	String year1_s = t3year1.getText();
+    	if(year1_s.length()==0) 
+    	{
+    		empty_Warning();
+    		return;
+    	}
     	int year0 = Integer.parseInt(t3year0.getText());
     	int year1 = Integer.parseInt(t3year1.getText());
 
@@ -494,6 +558,11 @@ public class MainController {
      	  
      	
   		String Name = t7name.getText();
+  		if(Name.length()==0)
+  		{
+  			T7output.setText("Please enter the Name");
+  			return;
+  		}
   		String gender = A4.getSelectedToggle().getUserData().toString(); 
   		int popularity = Integer.valueOf(A41.getSelectedToggle().getUserData().toString());
   		System.out.println("name: " + Name + " gender: " + gender + " popularity: " + popularity);

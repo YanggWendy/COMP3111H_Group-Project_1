@@ -15,14 +15,29 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.util.Pair;
 
-public class AnalyzeNames {
 
+/**
+ * The AnalyzeNames Program implements the methods that are used to calculate the report result. It includes
+ * the report functions in tasks 1-3.
+ * @author YCY Group
+ * @since  2020-10-30
+ */
+public class AnalyzeNames {
+	 /**
+     * This method get the csv file in dataset with specific year
+     * @param year the specific year in dataset
+     * @return CSVParser return the csv in that particular year
+     */
 	public static CSVParser getFileParser(int year) {
      FileResource fr = new FileResource(String.format("dataset/yob%s.csv", year));
      return fr.getCSVParser(false);
 	}
  
-	
+	/**
+     * This method generate the String of name Summary in task0 
+     * @param year the specific year when summary will be made
+     * @return String return the name Summary String
+     */
 	public static String getSummary(int year) {
 		String oReport = "";	
 		int totalBirths = 0;
@@ -58,6 +73,13 @@ public class AnalyzeNames {
 		return oReport;
 	}
 	
+	/**
+     * This method calculates the count of a specific name with specific gender in specific year 
+     * @param year the specific year when count will be calculated
+     * @param gender the gender of name
+     * @param name the name that will be counted
+     * @return int return the count of a name with gender in year
+     */
 	public static int get_count(int year, String gender,String name) {
 		
 		boolean found = false;
@@ -80,6 +102,12 @@ public class AnalyzeNames {
 	    	return -1;
 	}
 	
+	/**
+     * This method calculates the total rank in specific year with specific gender
+     * @param year the specific year when total rank will be calculated
+     * @param gender the gender of the total rank
+     * @return int return the total rank in year with gender 
+     */
 	public static int get_total_Rank(int year, String gender) {
 	
 		int uniqueGirls = 0;
@@ -98,7 +126,13 @@ public class AnalyzeNames {
 	
 	}
 
-	
+	/**
+     * This method calculates the rank of a specific name with specific gender in specific year 
+     * @param year the specific year when rank will be calculated
+     * @param gender the gender of name
+     * @param name the name that will be ranked
+     * @return int return the rank of a name with gender in year
+     */
 	public static int getRank(int year, String name, String gender) {
 	    boolean found = false;
 	    int oRank = 0;
@@ -121,6 +155,13 @@ public class AnalyzeNames {
 	    	return -1;
 	}
 
+	/**
+     * This method get the name of a specific rank with specific gender in specific year 
+     * @param year the specific year when rank will be calculated
+     * @param gender the gender of name
+     * @param rank the rank of the name 
+     * @return String return the name of a rank with gender in year
+     */
 	public static String getName(int year, int rank, String gender) {
 		boolean found = false;
 	    String oName = "";
@@ -193,7 +234,6 @@ public class AnalyzeNames {
 	 * @param year1
 	 * @return ObservaleList<Year>
 	 */
-
 	public static ObservableList<Year> reportPopularity(String name, String gender, int year0, int year1) {
 		ObservableList<Year> years = FXCollections.observableArrayList();
 		
@@ -232,7 +272,15 @@ public class AnalyzeNames {
 		return years;
 	}
 	
-	
+	/**
+	 * Task 2: get the data in line chart
+	 * @param name
+	 * @param gender
+	 * @param year0
+	 * @param year1
+	 * @param series
+	 * @return XYChart.Series
+	 */
 	public static XYChart.Series get_line_series(String name, String gender, int year0, int year1, XYChart.Series series){
 		
 		int count;
@@ -249,7 +297,15 @@ public class AnalyzeNames {
 		
 	}
 	
-	
+	/**
+	 * Task 2: get the data in bar chart and add data to barchart
+	 * @param name
+	 * @param gender
+	 * @param year0
+	 * @param year1
+	 * @param BarChart<?, ?>
+	 * @return void
+	 */
 	public static void get_bar_series(String name, String gender, int year0, int year1,BarChart<?, ?> t2BarChart){
 		
 		int rank;
@@ -355,7 +411,7 @@ public class AnalyzeNames {
 	}
 
 	/**
-	 * Report the largest difference in a range rather than consecutive two years.
+	 * Additional Algorithm: Report the largest difference in a range rather than consecutive two years.
 	 * @param gender
 	 * @param year0
 	 * @param year1
