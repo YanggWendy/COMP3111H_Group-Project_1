@@ -79,6 +79,40 @@ public class AnalyzeNamesTest {
     			&& arr[3][1].equals("Fe") && arr[3][2].equals("Fc") && arr[3][3].equals("Fb"));
     }
     
+    // Test Task 3.1
+    @Test
+    public void testReportTrend() {
+    	String[][] strings = AnalyzeNames.reportTrend("M", 1000, 1002);
+    	assertTrue(strings[1][0].equals("Me") && strings[1][1].contains("5 in 1000")
+    			&& strings[1][2].contains("1 in 1002") && strings[1][3].equals("-4")
+    			&& strings[2][0].equals("Ma") && strings[2][1].contains("1 in 1000")
+    			&& strings[2][2].contains("5 in 1001") && strings[2][3].equals("+4"));
+    }
+    @Test
+    public void testReportTrendReverse() {
+    	String[][] strings = AnalyzeNames.reportTrend("M", 1002, 1000);
+    	assertTrue(strings[1][0].equals("Me") && strings[1][1].contains("5 in 1000")
+    			&& strings[1][2].contains("1 in 1002") && strings[1][3].equals("-4")
+    			&& strings[2][0].equals("Ma") && strings[2][1].contains("1 in 1000")
+    			&& strings[2][2].contains("5 in 1001") && strings[2][3].equals("+4"));
+    }
+    @Test
+    public void testReportTrend2() {
+    	String[][] strings = AnalyzeNames.reportTrend2("M", 1000, 1003);
+    	assertTrue(strings[1][0].equals("Me") && strings[1][1].contains("5 in 1000")
+    			&& strings[1][2].contains("1 in 1002") && strings[1][3].equals("-4")
+    			&& strings[2][0].equals("Ma") && strings[2][1].contains("1 in 1000")
+    			&& strings[2][2].contains("6 in 1003") && strings[2][3].equals("+5"));
+    }
+    @Test
+    public void testReportTrend2Reverse() {
+    	String[][] strings = AnalyzeNames.reportTrend2("M", 1003, 1000);
+    	assertTrue(strings[1][0].equals("Me") && strings[1][1].contains("5 in 1000")
+    			&& strings[1][2].contains("1 in 1002") && strings[1][3].equals("-4")
+    			&& strings[2][0].equals("Ma") && strings[2][1].contains("1 in 1000")
+    			&& strings[2][2].contains("6 in 1003") && strings[2][3].equals("+5"));
+    }
+    
     // Test Task 4
     @Test 
     public void testRecomendNameInvalidParentYOB() {
