@@ -258,7 +258,7 @@ public class MainController {
      * @return nothing
      * @see IOException
      */
-    // task2
+    // task3
     @FXML
     void doT3Report() {
     	t3genderM.setUserData("M");
@@ -565,11 +565,11 @@ public class MainController {
   		}
   		String gender = A4.getSelectedToggle().getUserData().toString(); 
   		int popularity = Integer.valueOf(A41.getSelectedToggle().getUserData().toString());
-  		System.out.println("name: " + Name + " gender: " + gender + " popularity: " + popularity);
+  		//System.out.println("name: " + Name + " gender: " + gender + " popularity: " + popularity);
   		List<Pair<String, Integer>> nameList = PredicReport.similarNames(Name, gender, popularity);
   		String outputString = "";
   		for(Pair<String, Integer> pair: nameList) {
-  			outputString += pair.getKey() + " " + pair.getValue() + "\n";
+  			outputString += pair.getKey() + "  " + pair.getValue() + "\n";
   		}
   		T7output.setText(outputString);
      }
