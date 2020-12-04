@@ -15,6 +15,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
 
+
+/**
+ * The Table3Controller Program implements the methods in tab3result.fxml. It includes
+ * the pop up report and related function in tasks 3 as well as the visual table that includes .
+ * @author YCY Group
+ * @since  2020-10-30
+ */
 public class Table3Controller implements Initializable {
 	@FXML
 	private TableView<String[]> t3table;
@@ -23,11 +30,22 @@ public class Table3Controller implements Initializable {
 	String[][] arr0;
 	String[][] arr1;
 
+	/**
+	 * Table3Controller class constructor that initiates the variables
+	 * @param arr0[][]
+	 * @param arr1[][]
+	 */
 	public Table3Controller(String arr0[][], String arr1[][]) {
 		this.arr0 = arr0;
 		this.arr1 = arr1;
 	}
 
+	/**
+	 * Table3Controller class initialize
+	 * @param location
+	 * @param resources
+	 * @return void
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		ObservableList<String[]> data = FXCollections.observableArrayList();
