@@ -8,12 +8,23 @@ import javafx.util.Pair;
 import java.util.*;
 
 
-
+/**
+ * The PredicReport Program implements the methods that are used to calculate the recommendation result. It includes
+ * the recommend functions in tasks 4-6.
+ * @author YCY Group
+ * @since  2020-10-30
+ */
 public class PredicReport {
 	
-
-	
-// Task 4 Recommendation on Names for Newborn Babies
+	/**
+	 * Task 4: Recommendation on Names for Newborn Babies
+	 * @param dadName
+	 * @param momName
+	 * @param dadYOB
+	 * @param momYOB
+	 * @param vintage_year
+	 * @return String
+	 */
 	public static String recomendName(String dadName, String momName, int dadYOB, int momYOB, int vintage_year)
 	{
 		Random rand = new Random();
@@ -49,55 +60,72 @@ public class PredicReport {
 		return Recommendation;
 	}
 	
-//Task5 Recommendation	
-	public static String recomendName_task5(String Name,  int YOB, String gender,String genderMate, String prefer) {
-		
-		Random rand = new Random();
-		if(YOB<1880||YOB>2019||YOB<1880||YOB>2019) {
-			return "information on the year of birth is out of range!";
- 		}
-		
-		if(YOB==2019 && prefer=="Younger") {
-			return "information on the year of birth cannot predict younger soulmate!";
- 		}
-		
-		if(YOB==1880 && prefer=="Older") {
-			return "information on the year of birth cannot predict older soulmate!";
- 		}
-		
-		String soulgender = genderMate;
-		
-		int Rank = AnalyzeNames.getRank(YOB,Name,gender);
-		//System.out.println(Rank);
-		if(Rank == -1)
-		{
-			int uppernum = AnalyzeNames.get_total_Rank(YOB,gender);
-			Rank = rand.nextInt(uppernum);;
-		}
-		String soulName;
-		
-		if(prefer=="Younger") {		
-			soulName = AnalyzeNames.getName(YOB+1,Rank,soulgender);
-			//System.out.println(soulName);
-			if(soulName=="information on the name at the specified rank is not available") {
-				soulName = AnalyzeNames.getName(YOB+1,1,soulgender);
-			}
-		}else {			
-			soulName = AnalyzeNames.getName(YOB-1,Rank,soulgender);
-			//System.out.println(soulName);
-			if(soulName=="information on the name at the specified rank is not available") {
-				soulName = AnalyzeNames.getName(YOB-1,1,soulgender);}
-		}
+	/**
+	 * Task 5: Recommendation on Names for Soul Mates
+	 * @param Name
+	 * @param YOB
+	 * @param gender
+	 * @param genderMate
+	 * @param prefer
+	 * @return String
+	 */	
+public static String recomendName_task5(String Name, int YOB, String gender, String genderMate, String prefer) {
 	
-		String Recommendation = "Soulmate Name is ";
-		Recommendation += soulName;
-		Recommendation += "!";
-		return Recommendation;
+	Random rand = new Random();
+	if(YOB<1880||YOB>2019||YOB<1880||YOB>2019) {
+		return "information on the year of birth is out of range!";
 	}
+	
+	if(YOB==2019 && prefer=="Younger") {
+		return "information on the year of birth cannot predict younger soulmate!";
+	}
+	
+	if(YOB==1880 && prefer=="Older") {
+		return "information on the year of birth cannot predict older soulmate!";
+	}
+	
+	String soulgender = genderMate;
+	
+	int Rank = AnalyzeNames.getRank(YOB,Name,gender);
+	//System.out.println(Rank);
+	if(Rank == -1)
+	{
+		int uppernum = AnalyzeNames.get_total_Rank(YOB,gender);
+		Rank = rand.nextInt(uppernum);;
+	}
+	String soulName;
+	
+	if(prefer=="Younger") {		
+		soulName = AnalyzeNames.getName(YOB+1,Rank,soulgender);
+		//System.out.println(soulName);
+		if(soulName=="information on the name at the specified rank is not available") {
+			soulName = AnalyzeNames.getName(YOB+1,1,soulgender);
+		}
+	}else {			
+		soulName = AnalyzeNames.getName(YOB-1,Rank,soulgender);
+		//System.out.println(soulName);
+		if(soulName=="information on the name at the specified rank is not available") {
+			soulName = AnalyzeNames.getName(YOB-1,1,soulgender);}
+	}
+
+	String Recommendation = "Soulmate Name is ";
+	Recommendation += soulName;
+	Recommendation += "!";
+	return Recommendation;
+}
 
 	
 	
-	//Task6 score prediction	
+		/**
+		 * Task 6: Score prediction for Soul Mates
+		 * @param Name
+		 * @param mateName
+		 * @param YOB
+		 * @param gender
+		 * @param mategender
+		 * @param prefer
+		 * @return String
+		 */	
 		public static String recomendName_task6(String Name, String mateName, int YOB, String gender, String mategender, String prefer) {
 			
 			Random rand = new Random();
@@ -152,7 +180,12 @@ public class PredicReport {
 			return Recommendation;
 		}
 	
-		// Additional feature: Similar name recommendation
+		/**
+		 * Additional feature: Similar name recommendation
+		 * @param word1
+		 * @param word2
+		 * @return int
+		 */	
 		private static int minDistance(String word1, String word2) {
 	        int m = word1.length(), n = word2.length();
 	        int[][] dp = new int[m+1][n+1];
@@ -170,6 +203,13 @@ public class PredicReport {
 	        return dp[m][n];
 	    }
 		
+		/**
+		 * Additional feature: Similar name recommendation
+		 * @param Name
+		 * @param gender
+		 * @param popularity
+		 * @return List<Pair<String, Integer>>
+		 */	
 		public static List<Pair<String, Integer>> similarNames(String Name, String gender, int popularity){
 			int year0 = 2000, year1 = 2019;
 			PriorityQueue<Pair<String,Integer> > editDistance=

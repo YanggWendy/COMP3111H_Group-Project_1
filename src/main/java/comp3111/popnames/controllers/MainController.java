@@ -18,6 +18,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The MainController Program implements the methods in ui.fxml. It includes
+ * the report or recommend functions in tasks 1-6 as well as the pop up window 
+ * that may include bar or line chart.
+ * @author YCY Group
+ * @since  2020-10-30
+ */
+
 public class MainController {
 
     @FXML
@@ -77,11 +85,29 @@ public class MainController {
     @FXML
     private TextArea textAreaConsole;
 
+    /**
+     * This method pop up warning when users input some invalid information 
+     * @param nothing
+     * @return nothing
+     */
     void popupWarning() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Year out of range");
         alert.setHeaderText(null);
         alert.setContentText("Please input years between 1880 and 2019!");
+        alert.showAndWait();
+    }
+    
+    /**
+     * This method pop up warning when users input some invalid information 
+     * @param nothing
+     * @return nothing
+     */
+    void empty_Warning() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Empty input");
+        alert.setHeaderText(null);
+        alert.setContentText("Please complete the input!");
         alert.showAndWait();
     }
     
@@ -91,12 +117,38 @@ public class MainController {
     @FXML private RadioButton t1genderF;
     @FXML private TextField t1year2;
     @FXML private TextField t1year1;
+    
+    /**
+     * This method implements the Task1 and will be executed after users click the report button. 
+     * It enable an pop up window for a visual table.
+     * @param nothing
+     * @return nothing
+     * @see IOException
+     */
     @FXML
     void doT1Report() {
     	t1genderM.setUserData("M");
     	t1genderF.setUserData("F");	
-    	int top_n = Integer.parseInt(t1TopN.getText());
+    	String top_n_s = t1TopN.getText();
+    	if(top_n_s.length()==0) 
+    	{
+    		empty_Warning();
+    		return;
+    	}
+    	int top_n = Integer.parseInt(top_n_s);
     	String gender = T1.getSelectedToggle().getUserData().toString();
+    	String year0_s = t1year1.getText();
+    	if(year0_s.length()==0) 
+    	{
+    		empty_Warning();
+    		return;
+    	}
+    	String year1_s = t1year2.getText();
+    	if(year1_s.length()==0) 
+    	{
+    		empty_Warning();
+    		return;
+    	}
     	int year0 = Integer.parseInt(t1year1.getText());
     	int year1 = Integer.parseInt(t1year2.getText());
 
@@ -106,6 +158,7 @@ public class MainController {
                 popupWarning();
                 return;
             }
+            
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/tab1result.fxml"));
             loader.setController(new Table1Controller(AnalyzeNames.reportTopname(top_n, gender, year0, year1)));
@@ -121,18 +174,45 @@ public class MainController {
     
     
     
-    // task2
     @FXML private TextField t2name;
     @FXML private TextField t2year0;
     @FXML private TextField t2year1;
     @FXML private RadioButton t2genderM;
     @FXML private RadioButton t2genderF;
+    
+    /**
+     * This method implements the Task2 and will be executed after users click the report button in task2. 
+     * It enable an pop up window for a visual table and charts.
+     * @param nothing
+     * @return nothing
+     * @see IOException
+     */
+    // task2
     @FXML
     void doT2Report() {
     	t2genderM.setUserData("M");
     	t2genderF.setUserData("F");	
+    	String name_s = t2name.getText();
+    	if(name_s.length()==0) 
+    	{
+    		empty_Warning();
+    		return;
+    	}
     	String name = t2name.getText();
     	String  gender = T11.getSelectedToggle().getUserData().toString();
+    	
+    	String year0_s = t2year0.getText();
+    	if(year0_s.length()==0) 
+    	{
+    		empty_Warning();
+    		return;
+    	}
+    	String year1_s = t2year1.getText();
+    	if(year1_s.length()==0) 
+    	{
+    		empty_Warning();
+    		return;
+    	}
     	int year0 = Integer.parseInt(t2year0.getText());
     	int year1 = Integer.parseInt(t2year1.getText());
 
@@ -170,24 +250,53 @@ public class MainController {
     @FXML
     private RadioButton t3genderF;
     
+    
+    /**
+     * This method implements the Task3 and will be executed after users click the report button in task3. 
+     * It enable an pop up window for a visual table and charts.
+     * @param nothing
+     * @return nothing
+     * @see IOException
+     */
+    // task3
     @FXML
     void doT3Report() {
     	t3genderM.setUserData("M");
     	t3genderF.setUserData("F");	
     	String  gender = T111.getSelectedToggle().getUserData().toString();
+    	
+    	String year0_s = t3year0.getText();
+    	if(year0_s.length()==0) 
+    	{
+    		empty_Warning();
+    		return;
+    	}
+    	String year1_s = t3year1.getText();
+    	if(year1_s.length()==0) 
+    	{
+    		empty_Warning();
+    		return;
+    	}
     	int year0 = Integer.parseInt(t3year0.getText());
     	int year1 = Integer.parseInt(t3year1.getText());
-    	
-    	// popup window
-//        try {
+
+        // popup window
+        try {
             if (year0<1880 || year1<1880 || year0>2019 || year1>2019) {
                 popupWarning();
                 return;
             }
-            textAreaConsole.setText(AnalyzeNames.reportTrend(gender, year0, year1)); // radio button not ready so input F here for now.
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/tab3result.fxml"));
+            loader.setController(new Table3Controller(AnalyzeNames.reportTrend(gender, year0, year1), AnalyzeNames.reportTrend2(gender, year0, year1)));
+            Stage stage = new Stage();
+            stage.setTitle("Result for Trending names");
+            Pane root = (Pane) loader.load();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     	
     }
     
@@ -211,6 +320,12 @@ public class MainController {
     @FXML
     private TextArea a1output;
      
+    /**
+     * This method implements the Task4 and will be executed after users click the recommend button in task4. 
+     * It predicts the baby's names and shows the output in specific TextArea.
+     * @param nothing
+     * @return nothing
+     */
      @FXML
  	 void doT4Recommend() {
  		String dadName = t4dadName.getText();
@@ -282,7 +397,13 @@ public class MainController {
      @FXML
      private RadioButton t5genderF1;
 
-    
+
+     /**
+      * This method implements the Task5 and will be executed after users click the recommend button in task5. 
+      * It predicts the soulmate names and shows the output in specific TextArea.
+      * @param nothing
+      * @return nothing
+      */
      @FXML
  	 void doT5Recommend() {
     	t5genderM.setUserData("M");
@@ -355,6 +476,12 @@ public class MainController {
      @FXML
      private RadioButton t6mateF;
      
+     /**
+      * This method implements the Task6 and will be executed after users click the recommend button in task6. 
+      * It predicts on Scores for Compatible Pairs and shows the output in specific TextArea.
+      * @param nothing
+      * @return nothing
+      */
      @FXML
  	 void doT6Recommend() {
     	t6male.setUserData("M");
@@ -414,6 +541,13 @@ public class MainController {
      @FXML
      private TextArea T7output;
      
+     
+     /**
+      * This method implements the Task7 and will be executed after users click the recommend button in task7. 
+      * It recommends similar name and shows the output in specific TextArea.
+      * @param nothing
+      * @return nothing
+      */
      @FXML
      void doT7Recommend() {
     	t7male.setUserData("M");
@@ -424,13 +558,18 @@ public class MainController {
      	  
      	
   		String Name = t7name.getText();
+  		if(Name.length()==0)
+  		{
+  			T7output.setText("Please enter the Name");
+  			return;
+  		}
   		String gender = A4.getSelectedToggle().getUserData().toString(); 
   		int popularity = Integer.valueOf(A41.getSelectedToggle().getUserData().toString());
-  		System.out.println("name: " + Name + " gender: " + gender + " popularity: " + popularity);
+  		//System.out.println("name: " + Name + " gender: " + gender + " popularity: " + popularity);
   		List<Pair<String, Integer>> nameList = PredicReport.similarNames(Name, gender, popularity);
   		String outputString = "";
   		for(Pair<String, Integer> pair: nameList) {
-  			outputString += pair.getKey() + " " + pair.getValue() + "\n";
+  			outputString += pair.getKey() + "  " + pair.getValue() + "\n";
   		}
   		T7output.setText(outputString);
      }
@@ -438,6 +577,13 @@ public class MainController {
      @FXML
      private Button button;
      // do welcome interface
+     
+     /**
+      * This method implements the welcome window and will be executed after users click the start button in welcome window. 
+      * It welcomes users and guides them to do the name analysis task.
+      * @param nothing
+      * @return nothing
+      */
      @FXML
      void doWelcome() throws IOException {
     	Stage primaryStage = (Stage)button.getScene().getWindow();
