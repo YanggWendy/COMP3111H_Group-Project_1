@@ -310,16 +310,15 @@ public class AnalyzeNames {
 		
 		int rank;
 	
+		XYChart.Series series = new XYChart.Series();
 		for(int i = year0; i<=year1;i++)
 		{
-			String year = Integer.toString(i);
-			XYChart.Series series = new XYChart.Series();
+			String year = Integer.toString(i);		
 			rank = getRank(i,name,gender);
-			series.getData().add(new XYChart.Data(year, rank));
-			t2BarChart.getData().add(series);
+			series.getData().add(new XYChart.Data(year, rank));		
 		}
 		
-		
+		t2BarChart.getData().add(series);
 		
 	}
 
