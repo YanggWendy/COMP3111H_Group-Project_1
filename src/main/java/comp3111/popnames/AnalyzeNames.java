@@ -303,7 +303,7 @@ public class AnalyzeNames {
 	 * @param gender Gender
 	 * @param year0 Start year
 	 * @param year1 End year
-	 * @param t2BarChart<?, ?> Barchart object
+	 * @param t2BarChart Barchart object
 	 * @return void
 	 */
 	public static void get_bar_series(String name, String gender, int year0, int year1,BarChart<?, ?> t2BarChart){
