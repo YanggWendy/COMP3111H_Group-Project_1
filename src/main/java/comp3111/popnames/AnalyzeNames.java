@@ -191,7 +191,7 @@ public class AnalyzeNames {
 	 * @param top_N Top N names to show
 	 * @param gender gender
 	 * @param year0 year range start
-	 * @param year1
+	 * @param year1 year range end
 	 * @return the table in array format
 	 */
 	public static String[][] reportTopname(int top_N, String gender, int year0, int year1) {
@@ -232,7 +232,7 @@ public class AnalyzeNames {
 	 * @param gender Gender
 	 * @param year0 Start year
 	 * @param year1 End year
-	 * @return ObservaleList<Year> Year statistics as an observable list
+	 * @return Year statistics as an observable list
 	 */
 	public static ObservableList<Year> reportPopularity(String name, String gender, int year0, int year1) {
 		ObservableList<Year> years = FXCollections.observableArrayList();
@@ -304,7 +304,6 @@ public class AnalyzeNames {
 	 * @param year0 Start year
 	 * @param year1 End year
 	 * @param t2BarChart Barchart object
-	 * @return void
 	 */
 	public static void get_bar_series(String name, String gender, int year0, int year1,BarChart<?, ?> t2BarChart){
 		

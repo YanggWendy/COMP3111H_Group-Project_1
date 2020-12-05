@@ -45,7 +45,6 @@ public class Year {
     /**
   	 * set Year
   	 * @param year Year
-  	 * @return void
   	 */
     public void setYear(int year) {
         this.year.set(year);
@@ -70,7 +69,6 @@ public class Year {
     /**
   	 * set Count
   	 * @param count Count
-  	 * @return void
   	 */
     public void setCount(int count) {
         this.count.set(count);
@@ -95,7 +93,6 @@ public class Year {
     /**
   	 * set rank
   	 * @param rank Rank
-  	 * @return void
   	 */
     public void setRank(int rank) {
         this.rank.set(rank);
@@ -120,7 +117,6 @@ public class Year {
     /**
   	 * set Percentage
   	 * @param percentage Percentage
-  	 * @return void
   	 */
     public void setPercentage(String percentage) {
         this.percentage.set(percentage);
