@@ -61,10 +61,10 @@ public class Table2Controller implements Initializable {
 
 	/**
 	 * Table2Controller class constructor that initiates the variables
-	 * @param name
-	 * @param gender
-	 * @param year0
-	 * @param year1
+	 * @param name Name provided
+	 * @param gender Gender of the name
+	 * @param year0 Start year
+	 * @param year1 End year
 	 */
     public Table2Controller(String name, String gender, int year0, int year1) {
         this.name = name;
@@ -76,9 +76,8 @@ public class Table2Controller implements Initializable {
     
     /**
 	 * Table2Controller class initialize
-	 * @param location
-	 * @param resources
-	 * @return void
+	 * @param location Location
+	 * @param resources Resources
 	 */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
