@@ -40,3 +40,6 @@
 
 ## Documentation on implemented tasks
 [Javadoc](https://github.com/YanggWendy/COMP3111H_Group-Project_1/tree/master/javadoc)
+
+## Supplementary Notes
+[Supplementary Notes](https://github.com/YanggWendy/COMP3111H_Group-Project_1/blob/master/Supplementary%20Notes.pdf)
