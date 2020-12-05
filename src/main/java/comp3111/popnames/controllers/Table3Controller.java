@@ -32,8 +32,8 @@ public class Table3Controller implements Initializable {
 
 	/**
 	 * Table3Controller class constructor that initiates the variables
-	 * @param arr0[][]
-	 * @param arr1[][]
+	 * @param arr0[][] First array of table content
+	 * @param arr1[][] Second array of table content
 	 */
 	public Table3Controller(String arr0[][], String arr1[][]) {
 		this.arr0 = arr0;
@@ -42,9 +42,8 @@ public class Table3Controller implements Initializable {
 
 	/**
 	 * Table3Controller class initialize
-	 * @param location
-	 * @param resources
-	 * @return void
+	 * @param location Location
+	 * @param resources Resources
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

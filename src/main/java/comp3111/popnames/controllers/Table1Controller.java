@@ -28,7 +28,7 @@ public class Table1Controller implements Initializable {
 
     /**
 	 * Table1Controller class constructor that initiates the variables
-	 * @param arr[][]
+	 * @param arr[][] Array of the content of table
 	 */
     public Table1Controller(String arr[][]) {
         this.arr = arr;
@@ -36,9 +36,8 @@ public class Table1Controller implements Initializable {
     
     /**
 	 * Table1Controller class initialize
-	 * @param location
-	 * @param resources
-	 * @return void
+	 * @param location Location
+	 * @param resources Resources
 	 */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
