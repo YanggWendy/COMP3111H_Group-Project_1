@@ -14,10 +14,10 @@ public class Year {
 
     /**
 	 * Year class constructor that initiates the variables
-	 * @param year
-	 * @param count
-	 * @param rank
-	 * @param percentage
+	 * @param year Year
+	 * @param count Count of the name in this year
+	 * @param rank Rank of the name in this year
+	 * @param percentage Percentage of the name in this year
 	 */
     public Year(int year, int count, int rank, float percentage) {
         this.year = new SimpleIntegerProperty(year);
@@ -28,7 +28,6 @@ public class Year {
 
     /**
 	 * get year
-	 * @param nothing
 	 * @return int year that get
 	 */
     public int getYear() {
@@ -37,7 +36,6 @@ public class Year {
 
     /**
   	 * year Property
-  	 * @param nothing
   	 * @return SimpleIntegerProperty
   	 */
     public SimpleIntegerProperty yearProperty() {
@@ -46,8 +44,8 @@ public class Year {
     
     /**
   	 * set Year
-  	 * @param year
-  	 * @return nothing
+  	 * @param year Year
+  	 * @return void
   	 */
     public void setYear(int year) {
         this.year.set(year);
@@ -55,7 +53,6 @@ public class Year {
    
     /**
   	 * get Count
-  	 * @param nothing
   	 * @return int
   	 */
     public int getCount() {
@@ -64,7 +61,6 @@ public class Year {
 
     /**
   	 * get Ccount Property
-  	 * @param nothing
   	 * @return SimpleIntegerProperty
   	 */
     public SimpleIntegerProperty countProperty() {
@@ -73,8 +69,8 @@ public class Year {
 
     /**
   	 * set Count
-  	 * @param count
-  	 * @return nothing
+  	 * @param count Count
+  	 * @return void
   	 */
     public void setCount(int count) {
         this.count.set(count);
@@ -82,8 +78,7 @@ public class Year {
 
     /**
   	 * get Rank
-  	 * @param count
-  	 * @return nothing
+  	 * @return int
   	 */
     public int getRank() {
         return rank.get();
@@ -91,7 +86,6 @@ public class Year {
     
     /**
   	 * get rank Property
-  	 * @param nothing
   	 * @return SimpleIntegerProperty
   	 */
     public SimpleIntegerProperty rankProperty() {
@@ -100,8 +94,8 @@ public class Year {
 
     /**
   	 * set rank
-  	 * @param rank
-  	 * @return nothing
+  	 * @param rank Rank
+  	 * @return void
   	 */
     public void setRank(int rank) {
         this.rank.set(rank);
@@ -109,7 +103,6 @@ public class Year {
 
     /**
   	 * get Percentage
-  	 * @param nothing
   	 * @return String
   	 */
     public String getPercentage() {
@@ -118,7 +111,6 @@ public class Year {
 
     /**
   	 * get percentage Property
-  	 * @param nothing
   	 * @return SimpleIntegerProperty
   	 */
     public SimpleStringProperty percentageProperty() {
@@ -127,8 +119,8 @@ public class Year {
     
     /**
   	 * set Percentage
-  	 * @param percentage
-  	 * @return nothing
+  	 * @param percentage Percentage
+  	 * @return void
   	 */
     public void setPercentage(String percentage) {
         this.percentage.set(percentage);

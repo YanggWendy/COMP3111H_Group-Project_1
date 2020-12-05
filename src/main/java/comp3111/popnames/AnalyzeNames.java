@@ -228,11 +228,11 @@ public class AnalyzeNames {
 
 	/**
 	 * Task 2: report the popularity of a given name in a certain time range
-	 * @param name
-	 * @param gender
-	 * @param year0
-	 * @param year1
-	 * @return ObservaleList<Year>
+	 * @param name Name
+	 * @param gender Gender
+	 * @param year0 Start year
+	 * @param year1 End year
+	 * @return ObservaleList<Year> Year statistics as an observable list
 	 */
 	public static ObservableList<Year> reportPopularity(String name, String gender, int year0, int year1) {
 		ObservableList<Year> years = FXCollections.observableArrayList();
@@ -274,11 +274,11 @@ public class AnalyzeNames {
 	
 	/**
 	 * Task 2: get the data in line chart
-	 * @param name
-	 * @param gender
-	 * @param year0
-	 * @param year1
-	 * @param series
+	 * @param name Name
+	 * @param gender Gender
+	 * @param year0 Start year
+	 * @param year1 End year
+	 * @param series Series
 	 * @return XYChart.Series
 	 */
 	public static XYChart.Series get_line_series(String name, String gender, int year0, int year1, XYChart.Series series){
@@ -299,35 +299,34 @@ public class AnalyzeNames {
 	
 	/**
 	 * Task 2: get the data in bar chart and add data to barchart
-	 * @param name
-	 * @param gender
-	 * @param year0
-	 * @param year1
-	 * @param BarChart<?, ?>
+	 * @param name Name
+	 * @param gender Gender
+	 * @param year0 Start year
+	 * @param year1 End year
+	 * @param t2BarChart Barchart object
 	 * @return void
 	 */
 	public static void get_bar_series(String name, String gender, int year0, int year1,BarChart<?, ?> t2BarChart){
 		
 		int rank;
 	
+		XYChart.Series series = new XYChart.Series();
 		for(int i = year0; i<=year1;i++)
 		{
-			String year = Integer.toString(i);
-			XYChart.Series series = new XYChart.Series();
+			String year = Integer.toString(i);		
 			rank = getRank(i,name,gender);
-			series.getData().add(new XYChart.Data(year, rank));
-			t2BarChart.getData().add(series);
+			series.getData().add(new XYChart.Data(year, rank));		
 		}
 		
-		
+		t2BarChart.getData().add(series);
 		
 	}
 
 	/**
 	 * Task 3: report the names that have shown the largest rise/fall in popularity over a given period
-	 * @param gender
-	 * @param year0
-	 * @param year1
+	 * @param gender Gender
+	 * @param year0 Start year
+	 * @param year1 End year
 	 * @return table as a 2d array
 	 */
 	public static String[][] reportTrend(String gender, int year0, int year1) {
@@ -412,10 +411,10 @@ public class AnalyzeNames {
 
 	/**
 	 * Additional Algorithm: Report the largest difference in a range rather than consecutive two years.
-	 * @param gender
-	 * @param year0
-	 * @param year1
-	 * @return
+	 * @param gender Gender
+	 * @param year0 Start year
+	 * @param year1 End year
+	 * @return the table as a 2d array
 	 */
 	public static String[][] reportTrend2(String gender, int year0, int year1) {
 		//change the value if year0 > year1
