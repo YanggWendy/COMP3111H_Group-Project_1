@@ -111,6 +111,14 @@ public class MainController {
         alert.showAndWait();
     }
     
+    void invalidWarning() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Invalid TopN");
+        alert.setHeaderText(null);
+        alert.setContentText("Please input TopN bigger than 1!");
+        alert.showAndWait();
+    }
+    
     // task1
     @FXML private TextField t1TopN;
     @FXML private RadioButton t1genderM;
@@ -136,6 +144,11 @@ public class MainController {
     		return;
     	}
     	int top_n = Integer.parseInt(top_n_s);
+    	if(top_n<1)
+    	{
+    		empty_Warning();
+    		return;
+    	}
     	String gender = T1.getSelectedToggle().getUserData().toString();
     	String year0_s = t1year1.getText();
     	if(year0_s.length()==0) 
