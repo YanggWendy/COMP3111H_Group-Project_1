@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Table1Controller.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PopNames3111</a> &gt; <a href="index.source.html" class="el_package">comp3111.popnames.controllers</a> &gt; <span class="el_source">Table1Controller.java</span></div><h1>Table1Controller.java</h1><pre class="source lang-java linenums">package comp3111.popnames.controllers;
+
+import comp3111.popnames.Year;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.util.Callback;
+
+import java.net.URL;
+import java.util.Arrays;
+import java.util.ResourceBundle;
+
+
+/**
+ * The Table1Controller Program implements the methods in tab1result.fxml. It includes
+ * the report functions in tasks 1 as well as the visual table that includes .
+ * @author YCY Group
+ * @since  2020-10-30
+ */
+public class Table1Controller implements Initializable {
+    @FXML private TableView&lt;String[]&gt; t1table;
+    String[][] arr;
+
+    /**
+	 * Table1Controller class constructor that initiates the variables
+	 * @param arr[][]
+	 */
+<span class="nc" id="L33">    public Table1Controller(String arr[][]) {</span>
+<span class="nc" id="L34">        this.arr = arr;</span>
+<span class="nc" id="L35">    }</span>
+    
+    /**
+	 * Table1Controller class initialize
+	 * @param location
+	 * @param resources
+	 * @return void
+	 */
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+<span class="nc" id="L45">        ObservableList&lt;String[]&gt; data = FXCollections.observableArrayList();</span>
+<span class="nc" id="L46">        data.addAll(Arrays.asList(arr));</span>
+<span class="nc" id="L47">        data.remove(0);//remove titles from data</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        for (int i = 0; i &lt; arr[0].length; i++) {</span>
+<span class="nc" id="L49">            TableColumn tc = new TableColumn(arr[0][i]);</span>
+<span class="nc" id="L50">            final int colNo = i;</span>
+<span class="nc" id="L51">            tc.setCellValueFactory(new Callback&lt;TableColumn.CellDataFeatures&lt;String[], String&gt;, ObservableValue&lt;String&gt;&gt;() {</span>
+                @Override
+                public ObservableValue&lt;String&gt; call(TableColumn.CellDataFeatures&lt;String[], String&gt; p) {
+<span class="nc" id="L54">                    return new SimpleStringProperty((p.getValue()[colNo]));</span>
+                }
+            });
+//            tc.setPrefWidth(90);
+<span class="nc" id="L58">            t1table.getColumns().add(tc);</span>
+        }
+<span class="nc" id="L60">        t1table.setItems(data);</span>
+<span class="nc" id="L61">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

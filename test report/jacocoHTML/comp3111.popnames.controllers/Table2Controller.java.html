@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Table2Controller.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PopNames3111</a> &gt; <a href="index.source.html" class="el_package">comp3111.popnames.controllers</a> &gt; <span class="el_source">Table2Controller.java</span></div><h1>Table2Controller.java</h1><pre class="source lang-java linenums">package comp3111.popnames.controllers;
+
+import comp3111.popnames.AnalyzeNames;
+import comp3111.popnames.Year;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.chart.Axis;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+/**
+ * The Table2Controller Program implements the methods in tab2result.fxml. It includes
+ * the pop up report and related function in tasks 2 as well as the visual table and charts that includes .
+ * @author YCY Group
+ * @since  2020-10-30
+ */
+public class Table2Controller implements Initializable {
+    //table part
+	@FXML private TableView&lt;Year&gt; t2table;
+    @FXML private TableColumn&lt;Year, Integer&gt; yearCol;
+    @FXML private TableColumn&lt;Year, Integer&gt; countCol;
+    @FXML private TableColumn&lt;Year, Integer&gt; rankCol;
+    @FXML private TableColumn&lt;Year, String&gt; percentCol;
+
+    //Line Chart part
+    @FXML
+    private LineChart&lt;?, ?&gt; t2LineChart;
+
+    @FXML
+    private CategoryAxis t2line_X;
+
+    @FXML
+    private NumberAxis t2line_Y;
+ 
+    
+    //Bar Chart part
+    @FXML
+    private BarChart&lt;?, ?&gt; t2BarChart;
+
+    @FXML
+    private CategoryAxis t2bar_X;
+
+    @FXML
+    private NumberAxis t2bar_Y;
+    
+
+    String name;
+    String gender;
+    int year0;
+    int year1;
+
+
+	/**
+	 * Table2Controller class constructor that initiates the variables
+	 * @param name
+	 * @param gender
+	 * @param year0
+	 * @param year1
+	 */
+<span class="nc" id="L69">    public Table2Controller(String name, String gender, int year0, int year1) {</span>
+<span class="nc" id="L70">        this.name = name;</span>
+<span class="nc" id="L71">        this.gender = gender;</span>
+<span class="nc" id="L72">        this.year0 = year0;</span>
+<span class="nc" id="L73">        this.year1 = year1;</span>
+<span class="nc" id="L74">    }</span>
+    
+    
+    /**
+	 * Table2Controller class initialize
+	 * @param location
+	 * @param resources
+	 * @return void
+	 */
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+<span class="nc" id="L85">        yearCol.setCellValueFactory(new PropertyValueFactory&lt;Year, Integer&gt;(&quot;Year&quot;));</span>
+<span class="nc" id="L86">        countCol.setCellValueFactory(new PropertyValueFactory&lt;Year, Integer&gt;(&quot;Count&quot;));</span>
+<span class="nc" id="L87">        rankCol.setCellValueFactory(new PropertyValueFactory&lt;Year, Integer&gt;(&quot;Rank&quot;));</span>
+<span class="nc" id="L88">        percentCol.setCellValueFactory(new PropertyValueFactory&lt;Year, String&gt;(&quot;Percentage&quot;));</span>
+<span class="nc" id="L89">        t2table.setItems(AnalyzeNames.reportPopularity(name,gender, year0, year1));</span>
+
+        
+<span class="nc" id="L92">        XYChart.Series series = new XYChart.Series();    </span>
+<span class="nc" id="L93">        t2LineChart.getData().add(AnalyzeNames.get_line_series(name,gender, year0, year1,series));</span>
+        
+<span class="nc" id="L95">        AnalyzeNames.get_bar_series(name,gender, year0, year1,t2BarChart);</span>
+        
+        
+        
+<span class="nc" id="L99">    }</span>
+    
+    
+
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

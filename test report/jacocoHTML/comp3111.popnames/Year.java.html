@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Year.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PopNames3111</a> &gt; <a href="index.source.html" class="el_package">comp3111.popnames</a> &gt; <span class="el_source">Year.java</span></div><h1>Year.java</h1><pre class="source lang-java linenums">package comp3111.popnames;
+
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
+/**
+ * This Year is used to generate table in task1-3
+ * @author YCY Group
+ * @since  2020-10-30
+ */
+public class Year {
+    private SimpleIntegerProperty year, count, rank;
+    private SimpleStringProperty percentage;
+
+    /**
+	 * Year class constructor that initiates the variables
+	 * @param year
+	 * @param count
+	 * @param rank
+	 * @param percentage
+	 */
+<span class="fc" id="L22">    public Year(int year, int count, int rank, float percentage) {</span>
+<span class="fc" id="L23">        this.year = new SimpleIntegerProperty(year);</span>
+<span class="fc" id="L24">        this.count = new SimpleIntegerProperty(count);</span>
+<span class="fc" id="L25">        this.rank = new SimpleIntegerProperty(rank);</span>
+<span class="fc" id="L26">        this.percentage = new SimpleStringProperty(String.format(&quot;%.2f&quot;, percentage*100)+&quot;%&quot;);</span>
+<span class="fc" id="L27">    }</span>
+
+    /**
+	 * get year
+	 * @param nothing
+	 * @return int year that get
+	 */
+    public int getYear() {
+<span class="fc" id="L35">        return year.get();</span>
+    }
+
+    /**
+  	 * year Property
+  	 * @param nothing
+  	 * @return SimpleIntegerProperty
+  	 */
+    public SimpleIntegerProperty yearProperty() {
+<span class="nc" id="L44">        return year;</span>
+    }
+    
+    /**
+  	 * set Year
+  	 * @param year
+  	 * @return nothing
+  	 */
+    public void setYear(int year) {
+<span class="nc" id="L53">        this.year.set(year);</span>
+<span class="nc" id="L54">    }</span>
+   
+    /**
+  	 * get Count
+  	 * @param nothing
+  	 * @return int
+  	 */
+    public int getCount() {
+<span class="fc" id="L62">        return count.get();</span>
+    }
+
+    /**
+  	 * get Ccount Property
+  	 * @param nothing
+  	 * @return SimpleIntegerProperty
+  	 */
+    public SimpleIntegerProperty countProperty() {
+<span class="nc" id="L71">        return count;</span>
+    }
+
+    /**
+  	 * set Count
+  	 * @param count
+  	 * @return nothing
+  	 */
+    public void setCount(int count) {
+<span class="nc" id="L80">        this.count.set(count);</span>
+<span class="nc" id="L81">    }</span>
+
+    /**
+  	 * get Rank
+  	 * @param count
+  	 * @return nothing
+  	 */
+    public int getRank() {
+<span class="fc" id="L89">        return rank.get();</span>
+    }
+    
+    /**
+  	 * get rank Property
+  	 * @param nothing
+  	 * @return SimpleIntegerProperty
+  	 */
+    public SimpleIntegerProperty rankProperty() {
+<span class="nc" id="L98">        return rank;</span>
+    }
+
+    /**
+  	 * set rank
+  	 * @param rank
+  	 * @return nothing
+  	 */
+    public void setRank(int rank) {
+<span class="nc" id="L107">        this.rank.set(rank);</span>
+<span class="nc" id="L108">    }</span>
+
+    /**
+  	 * get Percentage
+  	 * @param nothing
+  	 * @return String
+  	 */
+    public String getPercentage() {
+<span class="nc" id="L116">        return percentage.get();</span>
+    }
+
+    /**
+  	 * get percentage Property
+  	 * @param nothing
+  	 * @return SimpleIntegerProperty
+  	 */
+    public SimpleStringProperty percentageProperty() {
+<span class="nc" id="L125">        return percentage;</span>
+    }
+    
+    /**
+  	 * set Percentage
+  	 * @param percentage
+  	 * @return nothing
+  	 */
+    public void setPercentage(String percentage) {
+<span class="nc" id="L134">        this.percentage.set(percentage);</span>
+<span class="nc" id="L135">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
