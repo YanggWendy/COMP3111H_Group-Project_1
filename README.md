@@ -30,13 +30,13 @@
 > Task 3 & Task 6
 
 ## Screenshots of execution
-[Screenshots]:https://github.com/YanggWendy/COMP3111H_Group-Project_1/tree/master/screenshots
+[Screenshots](https://github.com/YanggWendy/COMP3111H_Group-Project_1/tree/master/screenshots)
 
 ## Report on the unit testing
-[Reports on unit testing]:https://github.com/YanggWendy/COMP3111H_Group-Project_1/tree/master/test%20report/test
+[Reports on unit testing](https://github.com/YanggWendy/COMP3111H_Group-Project_1/tree/master/test%20report/test)
 
 ## Report on coverage test
-[Reports on coverage test]:https://github.com/YanggWendy/COMP3111H_Group-Project_1/tree/master/test%20report/jacocoHTML
+[Reports on coverage test](https://github.com/YanggWendy/COMP3111H_Group-Project_1/tree/master/test%20report/jacocoHTML)
 
 ## Documentation on implemented tasks
-[Javadoc]:https://github.com/YanggWendy/COMP3111H_Group-Project_1/tree/master/javadoc
+[Javadoc](https://github.com/YanggWendy/COMP3111H_Group-Project_1/tree/master/javadoc)
