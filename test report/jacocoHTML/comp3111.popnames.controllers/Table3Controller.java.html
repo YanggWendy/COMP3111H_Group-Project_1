@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Table3Controller.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PopNames3111</a> &gt; <a href="index.source.html" class="el_package">comp3111.popnames.controllers</a> &gt; <span class="el_source">Table3Controller.java</span></div><h1>Table3Controller.java</h1><pre class="source lang-java linenums">package comp3111.popnames.controllers;
+
+import java.net.URL;
+
+import java.util.Arrays;
+import java.util.ResourceBundle;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.util.Callback;
+
+
+/**
+ * The Table3Controller Program implements the methods in tab3result.fxml. It includes
+ * the pop up report and related function in tasks 3 as well as the visual table that includes .
+ * @author YCY Group
+ * @since  2020-10-30
+ */
+public class Table3Controller implements Initializable {
+	@FXML
+	private TableView&lt;String[]&gt; t3table;
+	@FXML
+	private TableView&lt;String[]&gt; t3table2;
+	String[][] arr0;
+	String[][] arr1;
+
+	/**
+	 * Table3Controller class constructor that initiates the variables
+	 * @param arr0[][]
+	 * @param arr1[][]
+	 */
+<span class="nc" id="L38">	public Table3Controller(String arr0[][], String arr1[][]) {</span>
+<span class="nc" id="L39">		this.arr0 = arr0;</span>
+<span class="nc" id="L40">		this.arr1 = arr1;</span>
+<span class="nc" id="L41">	}</span>
+
+	/**
+	 * Table3Controller class initialize
+	 * @param location
+	 * @param resources
+	 * @return void
+	 */
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+<span class="nc" id="L51">		ObservableList&lt;String[]&gt; data = FXCollections.observableArrayList();</span>
+<span class="nc" id="L52">		data.addAll(Arrays.asList(arr0));</span>
+<span class="nc" id="L53">		data.remove(0);//remove titles from data</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">		for (int i = 0; i &lt; arr0[0].length; i++) {</span>
+<span class="nc" id="L55">			TableColumn tc = new TableColumn(arr0[0][i]);</span>
+<span class="nc" id="L56">			final int colNo = i;</span>
+<span class="nc" id="L57">			tc.setCellValueFactory(new Callback&lt;TableColumn.CellDataFeatures&lt;String[], String&gt;, ObservableValue&lt;String&gt;&gt;() {</span>
+				@Override
+				public ObservableValue&lt;String&gt; call(TableColumn.CellDataFeatures&lt;String[], String&gt; p) {
+<span class="nc" id="L60">					return new SimpleStringProperty((p.getValue()[colNo]));</span>
+				}
+			});
+<span class="nc" id="L63">            tc.setPrefWidth(150);</span>
+<span class="nc" id="L64">			t3table.getColumns().add(tc);</span>
+		}
+<span class="nc" id="L66">		t3table.setItems(data);</span>
+
+<span class="nc" id="L68">		data = FXCollections.observableArrayList();</span>
+<span class="nc" id="L69">		data.addAll(Arrays.asList(arr1));</span>
+<span class="nc" id="L70">		data.remove(0);//remove titles from data</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">		for (int i = 0; i &lt; arr1[0].length; i++) {</span>
+<span class="nc" id="L72">			TableColumn tc = new TableColumn(arr1[0][i]);</span>
+<span class="nc" id="L73">			final int colNo = i;</span>
+<span class="nc" id="L74">			tc.setCellValueFactory(new Callback&lt;TableColumn.CellDataFeatures&lt;String[], String&gt;, ObservableValue&lt;String&gt;&gt;() {</span>
+				@Override
+				public ObservableValue&lt;String&gt; call(TableColumn.CellDataFeatures&lt;String[], String&gt; p) {
+<span class="nc" id="L77">					return new SimpleStringProperty((p.getValue()[colNo]));</span>
+				}
+			});
+<span class="nc" id="L80">			tc.setPrefWidth(150);</span>
+<span class="nc" id="L81">			t3table2.getColumns().add(tc);</span>
+		}
+<span class="nc" id="L83">		t3table2.setItems(data);</span>
+<span class="nc" id="L84">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
