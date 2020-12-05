@@ -28,3 +28,6 @@ Group teammates:
 > sid: 20582834
 
 > Task 3 & Task 6
+
+### Screenshots of execution
+
