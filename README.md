@@ -32,6 +32,11 @@
 ## Screenshots of execution
 [Screenshots](https://github.com/YanggWendy/COMP3111H_Group-Project_1/tree/master/screenshots)
 
+Example:
+![image](https://github.com/YanggWendy/COMP3111H_Group-Project_1/blob/master/screenshots/1.jpg)
+![image](https://github.com/YanggWendy/COMP3111H_Group-Project_1/blob/master/screenshots/3.jpg)
+![image](https://github.com/YanggWendy/COMP3111H_Group-Project_1/blob/master/screenshots/4.jpg)
+
 ## Report on the unit testing
 [Reports on unit testing](https://github.com/YanggWendy/COMP3111H_Group-Project_1/tree/master/test%20report/test)
 
