@@ -33,6 +33,7 @@
 [Screenshots](https://github.com/YanggWendy/COMP3111H_Group-Project_1/tree/master/screenshots)
 
 > Examples:
+
 ![image](https://github.com/YanggWendy/COMP3111H_Group-Project_1/blob/master/screenshots/1.jpg)
 ![image](https://github.com/YanggWendy/COMP3111H_Group-Project_1/blob/master/screenshots/3.jpg)
 ![image](https://github.com/YanggWendy/COMP3111H_Group-Project_1/blob/master/screenshots/4.jpg)
